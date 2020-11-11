@@ -3,51 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use Session;
 use Illuminate\Support\Facades\Redirect;
-session_start();
+use Session;
+use App\user;
+use App\Models\Roles;
 
 class AdminController extends Controller
 {
-	public function AuthLogin(){
-        $admin_id = Session::get('admin_id');
-        if($admin_id){
-            return Redirect::to('dashboard');
-        }else{
-            return Redirect::to('admin')->send();
-        }
+    public function showImportantInfo(){
+    	$roles = Roles::orderby('id','desc')->get();
+    	return view('layouts.admin')->with('roles',$roles);
     }
-    public function index(){
-    	return view('admin.admin_login');
+    public function all_admin(){
+    	$all_admin = User::orderBy('id','desc')->paginate(3);
+    	$manager_admin = view('auth.all_admin')
+    	->with('all_admin', $all_admin);
+    	return view('layouts.admin')
+    	->with('all_admin', $manager_admin);
     }
-    public function show_dashboard(){
-    	$this->AuthLogin();
-    	return view('admin.dashboard');
+    public function delete_admin($admin_id){
+   		User::where('id',$admin_id)
+        ->delete();
+        return Redirect::to('all_admin');
+   	}
+   	public function add_admin(){
+    	return view('auth.add_admin');
     }
-    //Đăng Nhập
-    public function login(Request $request){
-        $this->AuthLogin();
-    	$admin_email = $request->Email;
-    	$admin_password = md5($request->Password);
-    	$result = DB::table('users')
-    	->where('Email',$admin_email)
-    	->where('Password',$admin_password)
-    	->first();
-		if ($result) {
-			Session::put('admin_name', $result->Name);
-			Session::put('admin_id', $result->id);
-			return Redirect::to('/dashboard');
-		}else{
-			Session::put('message', 'Tài Khoản và Mật Khẩu Sai');
-			return Redirect::to('/admin');
-		}
-    }
-    //Đăng xuất
-    public function logout(){
-		$this->AuthLogin();
-        Session::put('admin_name', null);
-        Session::put('admin_id', null);
-        return Redirect::to('/admin');
-	}
 }

@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('layouts.admin')
 @section('admin_content')
 <div class="form-group">
             <div class="col-lg-12">
@@ -17,7 +17,7 @@
                 <label for="exampleFormControlFile1">Hình Ảnh</label><br>
                 <input type="file" name="category_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục">
                 </div></br>
-                <img src="{{url::to('public/uploads/category/'.$edit->Image_category)}}" height="50" width="120"></br>
+                <img src="{{url::to('public/uploads/category/'.$edit->Image_category)}}" height="90" width="120"></br>
                 <div class="form-group"></br>
                 	<button type="submit" class="btn btn-primary">Thêm</button>
                 </div>

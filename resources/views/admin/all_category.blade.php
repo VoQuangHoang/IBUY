@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('layouts.admin')
 @section('admin_content')
 <div class="list-group">
 	<?php
@@ -24,7 +24,7 @@
     <tr>
       <td>{{$cate->Name_category}}</td>
       <td>
-      	<img src="public/uploads/category/{{$cate->Image_category}}" height="50" width="120">
+      	<img src="public/uploads/category/{{$cate->Image_category}}" height="80" width="120">
       </td>
       <td>
         <a href="{{URL::to('/edit_category/'.$cate->id_category)}}" class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>

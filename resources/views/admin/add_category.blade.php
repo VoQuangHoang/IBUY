@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('layouts.admin')
 @section('admin_content')
 <div class="form-group">
             <div class="col-lg-12">

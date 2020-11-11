@@ -1,4 +1,4 @@
-@extends('admin_layout')
+@extends('layouts.admin')
 @section('admin_content')
 <div class="form-group">
             <div class="col-lg-12">
@@ -19,15 +19,15 @@
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Mô tả sản phẩm</label><br>
-                <input type="text" name="product_desc" value="{{$edit->Description_product}}" class="form-control" id="formGroupExampleInput" placeholder="Mô tả sản phẩm" required>
-              </div></br>
+              <textarea style="text" rows="10"   placeholder="Mô tả sản phẩm" id="formGroupExampleInput" class="form-control" name="product_desc"  required>{{$edit->Description_product}}</textarea>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br>
                 <input type="number" name="product_Quantity" value="{{$edit->Quantity_product}}" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Hình Ảnh</label><br>
-                <input type="file" name="product_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục">
+                <input type="file" name="product_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục"><br>
+                <img src="{{url::to('public/uploads/product/'.$edit->Image_product)}}" height="90" width="120">
                 </div></br>
                 <div class="form-group">
                 	<label class="control-label col-md-3">Danh mục sản phẩm</label>
