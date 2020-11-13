@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Session;
-session_start();
+// session_start();
 use App\Models\Product;
 use App\Models\Category;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');//Hàng rào 
+    }
     public function product(){
      	$category = Category::orderby('id_category','desc')->get();
     	return view('admin.add_product')->with('category',$category);

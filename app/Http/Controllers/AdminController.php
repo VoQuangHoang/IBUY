@@ -10,6 +10,10 @@ use App\Models\Roles;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','role:admin']);
+    }
     public function showImportantInfo(){
     	$roles = Roles::orderby('id','desc')->get();
     	return view('layouts.admin')->with('roles',$roles);
