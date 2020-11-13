@@ -38,7 +38,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{('home')}}">
           <i class="fas fa-desktop"></i>
           <span>Trang Chủ</span></a>
       </li>

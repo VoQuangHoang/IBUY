@@ -44,7 +44,7 @@ class ProductController extends Controller
    	public function all_product(){
    		$all_product = Product::join('categories','categories.id_category','=','product.Id_category')
    		->orderby('product.id_product','desc')
-   		->paginate(5);
+   		->paginate(4);
    		$manager_product = view('admin.all_product')
       ->with('all_product',$all_product);
    		return view('layouts.admin')

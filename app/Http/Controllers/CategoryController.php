@@ -28,10 +28,10 @@ class CategoryController extends Controller
     	// echo'<pre>';
         $data->save();
     	Session::put('message','Thêm danh mục thành công');
-    	return Redirect::to('add_category');
+    	return Redirect::to('all_category');
     }
     public function all_category(){
-    	$all_category = Category::orderBy('id_category','desc')->paginate(5);
+    	$all_category = Category::orderBy('id_category','desc')->paginate(4);
     	$manager_category = view('admin.all_category')
     	->with('all_category', $all_category);
     	return view('layouts.admin')
