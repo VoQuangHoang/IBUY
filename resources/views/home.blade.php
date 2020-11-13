@@ -35,18 +35,20 @@
                         <div class="top_bar_content ml-auto">
                             
                             <div class="top_bar_user">
-                                <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                                <div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                @guest
+                            <div><a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập') }}</a></div>
+                        @else
+                            <div><a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Đăng Xuất') }}
+                                        <div>|{{ Auth::user()->name }}</div>
                                     </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                         @csrf
                                     </form>
-                                </div>
-                                {{ Auth::user()->name }}
+                            </div>
+                        @endguest
                             </div>
                         </div>
                     </div>
