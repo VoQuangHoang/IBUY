@@ -16,10 +16,10 @@ class RoleTableSeeder extends Seeder
         // $role->Name_roles = 'admin';
         // $role->save();
         Roles::create([
-        	'Name_roles' => 'admin'
+        	'name_roles' => 'admin'
         ]);
         Roles::create([
-        	'Name_roles' => 'user'
+        	'name_roles' => 'user'
         ]);
     }
 }

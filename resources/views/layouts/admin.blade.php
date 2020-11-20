@@ -29,7 +29,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{('home')}}">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{('admin')}}">
         <div class="sidebar-brand-text mx-3">IBUY</div>
       </a>
 
@@ -66,7 +66,27 @@
       </li>
       <!-- Divider -->
       <hr class="sidebar-divider">
+      <!-- <div class="sidebar-heading">
+        Quản Lí Slide
+      </div> -->
 
+      <!-- Nav Item - Pages Collapse Menu -->
+     <!--  <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#category" aria-expanded="true" aria-controls="category">
+          <i class="fa fa-film"></i>
+          <span>Slide</span>
+        </a>
+        <div id="category" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Bao gồm:</h6>
+            <a class="collapse-item" href="{{URL::to('all_slide')}}">Danh Sách Slide</a>
+            <a class="collapse-item" href="{{URL::to('add_slide')}}">Thêm Slide</a>
+          </div>
+        </div>
+      </li>
+ -->
+      <!-- Divider -->
+      <!-- <hr class="sidebar-divider"> -->
       <!-- Heading -->
       <div class="sidebar-heading">
         Quản Lí Danh Mục
@@ -123,11 +143,6 @@
         <a class="nav-link" href="charts.html">
           <i class="fas fa-bullhorn"></i>
           <span>Quản Lí Liên Hệ</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fab fa-intercom"></i>
-          <span>Quản Lí Khách Hàng</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="charts.html">

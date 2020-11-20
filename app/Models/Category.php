@@ -8,11 +8,11 @@ class Category extends Model
 {
     public $timestamps = false; //set time to false
     protected $fillable = [
-    	'Name_category','Image_category'
+    	'name_category','image_category'
     ];
     protected $primaryKey = 'id_category';
  	protected $table = 'categories';
  	public function Product(){
- 		return $this->hasMany('App\Models\Product','Id_category','id_category');
+ 		return $this->hasMany('App\Models\Product','id_category','id_category');
  	}
 }

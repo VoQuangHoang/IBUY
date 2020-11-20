@@ -11,13 +11,13 @@
               {{ csrf_field() }}
               <div class="form-group">
                 <label for="exampleFormControlFile1">Tên Danh Mục</label><br>
-                <input type="text" name="category_name" value="{{$edit->Name_category}}" class="form-control" id="formGroupExampleInput" placeholder="Thêm tên danh mục" required>
+                <input type="text" name="category_name" value="{{$edit->name_category}}" class="form-control" id="formGroupExampleInput" placeholder="Thêm tên danh mục" required>
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Hình Ảnh</label><br>
                 <input type="file" name="category_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục">
                 </div></br>
-                <img src="{{url::to('public/uploads/category/'.$edit->Image_category)}}" height="90" width="120"></br>
+                <img src="{{url::to('public/uploads/category/'.$edit->image_category)}}" height="90" width="120"></br>
                 <div class="form-group"></br>
                 	<button type="submit" class="btn btn-primary">Thêm</button>
                 </div>

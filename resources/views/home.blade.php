@@ -36,7 +36,9 @@
                             
                             <div class="top_bar_user">
                                 @guest
-                            <div><a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập') }}</a></div>
+                            <div><a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập') }}</a>
+                            </div>
+                            <div><a class="nav-link" href="{{ route('register') }}">{{ __('Đăng Ký') }}</a></div>
                         @else
                             <div><a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

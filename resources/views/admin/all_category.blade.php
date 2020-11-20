@@ -22,9 +22,9 @@
   <tbody style="text-align:center">
   	@foreach($all_category as $key =>$cate)
     <tr>
-      <td>{{$cate->Name_category}}</td>
+      <td>{{$cate->name_category}}</td>
       <td class="d-flex justify-content-center">
-      	<img src="public/uploads/category/{{$cate->Image_category}}" height="80" width="220">
+      	<img src="public/uploads/category/{{$cate->image_category}}" height="80" width="220">
       </td>
       <td>
         <a href="{{URL::to('/edit_category/'.$cate->id_category)}}" class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>

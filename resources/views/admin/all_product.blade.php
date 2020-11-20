@@ -26,16 +26,16 @@
   <tbody style="text-align:center">
   	@foreach($all_product as $key =>$pro)
     <tr>
-      <td>{{$pro->Name_product}}</td>
-      <td>{{$pro->Price_product}}</td>
-      <td>{{$pro->Description_product}}</td>
-      <td>{{$pro->Quantity_product}}</td>
+      <td>{{$pro->name_product}}</td>
+      <td>{{$pro->price_product}}</td>
+      <td>{{$pro->description_product}}</td>
+      <td>{{$pro->quantity_product}}</td>
       <td>
-      	<img src="public/uploads/product/{{$pro->Image_product}}" height="250" width="220">
+      	<img src="public/uploads/product/{{$pro->image_product}}" height="250" width="220">
       </td>
-      <td>{{$pro->Name_category}}</td>
+      <td>{{$pro->name_category}}</td>
       <td>
-        <a href="{{URL::to('/edit_product/'.$pro->id_product)}}" class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a><br>
+        <a href="{{URL::to('/edit_product/'.$pro->id_product)}}" class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>
         <a onclick="return confirm('Bạn thật sự muốn xóa')" href="{{URL::to('/delete_product/'.$pro->id_product)}}" class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
       </td>
     </tr>
