@@ -31,7 +31,7 @@
       <td>{{$pro->Description_product}}</td>
       <td>{{$pro->Quantity_product}}</td>
       <td>
-      	<img src="public/uploads/product/{{$pro->Image_product}}" height="80" width="120">
+      	<img src="public/uploads/product/{{$pro->Image_product}}" width="60px">
       </td>
       <td>{{$pro->Name_category}}</td>
       <td>

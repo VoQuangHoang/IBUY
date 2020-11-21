@@ -38,6 +38,11 @@
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Rubik:300,400,500,700,900');
 
+@font-face {
+	font-family: Roboto;
+	src: url(public/frontend/font/Roboto-Regular.ttf);
+  }
+
 /*********************************
 2. Body and some general stuff
 *********************************/
@@ -52,7 +57,7 @@
 }
 body
 {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	font-weight: 400;
 	background: #FFFFFF;
@@ -73,7 +78,7 @@ ul
 }
 p
 {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	font-weight: 400;
@@ -130,7 +135,7 @@ h4{font-size: 18px;}
 h5{font-size: 14px;}
 h1, h2, h3, h4, h5, h6
 {
-	font-family: 'Rubik', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	font-weight: 500;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
@@ -511,7 +516,7 @@ section
 }
 .logo_container
 {
-	height: 175px;
+	height: 100px;
 }
 .logo
 {
@@ -530,7 +535,7 @@ section
 }
 .header_search
 {
-	height: 175px;
+	height: 100px;
 }
 .header_search_content
 {
@@ -742,7 +747,7 @@ select option
 }
 .wishlist_cart
 {
-	height: 175px;
+	height: 100px;
 }
 .wishlist
 {
@@ -906,8 +911,8 @@ select option
 	position: absolute;
 	top: 100%;
 	left: 0;
-	/*visibility: hidden;
-	opacity: 0;*/
+	visibility: hidden;
+	opacity: 0;
 	min-width: 100%;
 	background: #FFFFFF;
 	box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
@@ -992,7 +997,7 @@ select option
 }
 .main_nav_dropdown li
 {
-	margin-right: 35px;
+	margin-right: 50px;
 }
 .main_nav_dropdown li:last-child
 {
@@ -1196,8 +1201,8 @@ select option
 .banner
 {
 	width: 100%;
-	padding-top: 68px;
-	padding-bottom: 83px;
+	/* padding-top: 88px;
+	padding-bottom: 88px; */
 	overflow: hidden;
 }
 .banner_background
@@ -1205,33 +1210,32 @@ select option
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 98.9%;
 	height: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
+	margin-left: 15px;
 }
 .banner_content
 {
 	z-index: 1;
+	margin-bottom: 20px;
 }
 .banner_text
 {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
 	line-height: 1.166;
-	color: #7599b2;
+	color: #ffffff;
 	text-transform: uppercase;
 	letter-spacing: 0.038em;
-}
-.banner_price
-{
-
+	padding-top: 50px;
 }
 .banner_price
 {
 	font-size: 30px;
-	color: #df3b3b;
+	color: #ffffff;
 	margin-top: 87px;
 }
 .banner_price span
@@ -1256,12 +1260,16 @@ select option
 {
 	font-size: 18px;
 	font-weight: 400;
-	color: #000000;
+	color: #ffffff;
 	margin-top: 8px;
 }
 .banner_button
 {
 	margin-top: 42px;
+}
+.banner_button a
+{
+	color: #043458;
 }
 .banner_product_image
 {
@@ -1279,6 +1287,7 @@ select option
 {
 	padding-top: 70px;
 	padding-bottom: 70px;
+	background-color: pink;
 }
 .char_item
 {
@@ -3379,8 +3388,8 @@ select option
 {
 	width: 100%;
 	background: #fafafa;
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 30px;
+	padding-bottom: 30px;
 	box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
 }
 .newsletter_container

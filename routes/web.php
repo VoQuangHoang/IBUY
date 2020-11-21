@@ -37,6 +37,10 @@ Route::get('edit_product/{id_product}','ProductController@edit_product');
 Route::post('update_product/{id_product}','ProductController@update_product');
 Route::get('delete_product/{id_product}','ProductController@delete_product');
 
+Route::get('/master', function () {
+    return view('layouts.master');
+});
+
 
 
 
