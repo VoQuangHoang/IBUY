@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +39,10 @@ Route::get('all_product','ProductController@all_product');
 Route::get('edit_product/{id_product}','ProductController@edit_product');
 Route::post('update_product/{id_product}','ProductController@update_product');
 Route::get('delete_product/{id_product}','ProductController@delete_product');
+
+Route::get('/master', function () {
+    return view('layouts.master');
+});
 
 
 
