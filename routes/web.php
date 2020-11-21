@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::routes();
 Route::get('/', 'HomeController@index');
-Route::get('home', 'HomeController@index');
 //Quản Trị Viên
 Route::get('/admin','AdminController@showImportantInfo');
 Route::get('/all_admin','AdminController@all_admin');
@@ -40,9 +39,11 @@ Route::get('edit_product/{id_product}','ProductController@edit_product');
 Route::post('update_product/{id_product}','ProductController@update_product');
 Route::get('delete_product/{id_product}','ProductController@delete_product');
 
-Route::get('/master', function () {
-    return view('layouts.master');
+Route::get('product_detail/{id_product}', 'PageController@getdetails');
+Route::get('/abc', function () {
+    return view('page.detailproduct');
 });
+
 
 
 

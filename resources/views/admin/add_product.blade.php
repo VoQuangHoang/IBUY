@@ -19,7 +19,7 @@
               <div class="form-group">
                 <label for="exampleFormControlFile1">Mô tả sản phẩm</label><br>
                 <div class="col-lg-10">
-                    <textarea style="text" rows="10"  placeholder="Mô tả sản phẩm" id="validationCustom02" class="form-control" name="product_desc" required></textarea>
+                    <textarea tyle="text" rows="10"  placeholder="Mô tả sản phẩm" id="validationCustom02" class="form-control" name="product_desc" required></textarea>
                   </div>
               </div></br>
               <div class="form-group">

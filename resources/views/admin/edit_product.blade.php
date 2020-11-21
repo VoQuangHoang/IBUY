@@ -19,7 +19,7 @@
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Mô tả sản phẩm</label><br>
-              <textarea style="text" rows="10"   placeholder="Mô tả sản phẩm" id="formGroupExampleInput" class="form-control" name="product_desc"  required>{{$edit->description_product}}</textarea>
+              <textarea tyle="text" rows="10"   placeholder="Mô tả sản phẩm" id="formGroupExampleInput" class="form-control" name="product_desc"  required>{{$edit->description_product}}</textarea>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br/>
                 <input type="number" name="product_quantity" value="{{$edit->quantity_product}}" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>

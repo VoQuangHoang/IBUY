@@ -29,7 +29,7 @@
     <tr>
       <td>{{$admin->name}}</td>
       <td>
-        <img src="public/uploads/user/{{$admin->image}}" height="150" width="120">
+        <img src="public/uploads/user/{{$admin->image}}" width="100">
       </td>
       <td>{{$admin->email}}</td>
       <td>{{$admin->gender}}</td>
