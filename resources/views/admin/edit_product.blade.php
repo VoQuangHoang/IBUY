@@ -11,30 +11,30 @@
               {{ csrf_field() }}
               <div class="form-group">
                 <label for="exampleFormControlFile1">Tên sản phẩm</label><br>
-                <input type="text" name="product_name" value="{{$edit->Name_product}}" class="form-control" id="formGroupExampleInput" placeholder="Tên sản phẩm" required>
+                <input type="text" name="product_name" value="{{$edit->name_product}}" class="form-control" id="formGroupExampleInput" placeholder="Tên sản phẩm" required>
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Giá sản phẩm</label><br>
-                <input type="number" name="product_price" value="{{$edit->Price_product}}" class="form-control" id="formGroupExampleInput" placeholder="Giá sản phẩm" required>
+                <input type="number" name="product_price" value="{{$edit->price_product}}" class="form-control" id="formGroupExampleInput" placeholder="Giá sản phẩm" required>
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Mô tả sản phẩm</label><br>
-              <textarea style="text" rows="10"   placeholder="Mô tả sản phẩm" id="formGroupExampleInput" class="form-control" name="product_desc"  required>{{$edit->Description_product}}</textarea>
+              <textarea style="text" rows="10"   placeholder="Mô tả sản phẩm" id="formGroupExampleInput" class="form-control" name="product_desc"  required>{{$edit->description_product}}</textarea>
               <div class="form-group">
-                <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br>
-                <input type="number" name="product_Quantity" value="{{$edit->Quantity_product}}" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>
+                <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br/>
+                <input type="number" name="product_quantity" value="{{$edit->quantity_product}}" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>
               </div></br>
               <div class="form-group">
-                <label for="exampleFormControlFile1">Hình Ảnh</label><br>
-                <input type="file" name="product_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục"><br>
-                <img src="{{url::to('public/uploads/product/'.$edit->Image_product)}}" height="90" width="120">
+                <label for="exampleFormControlFile1">Hình Ảnh</label><br/>
+                <input type="file" name="product_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục">
+                <img src="{{url::to('public/uploads/product/'.$edit->image_product)}}" height="250" width="250">
                 </div></br>
                 <div class="form-group">
                 	<label class="control-label col-md-3">Danh mục sản phẩm</label>
                 	<div class="col-md-4">
-                		<select class="form-control" name="category">
+                		<select class="form-control" name="category" value="category">
                       @foreach($category as $key => $cate)
-		                  <option value="{{$cate->id_category}}">{{$cate->Name_category}}</option>
+		                  <option value="{{$cate->id_category}}">{{$cate->name_category}} </option>
                       @endforeach
 		                </select>
                 	</div>

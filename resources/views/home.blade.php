@@ -43,12 +43,14 @@
                                     href="mailto:fastsales@gmail.com">support@ibuy.com</a>
                             </div>
                             <div class="top_bar_content ml-auto">
-
-                                <div class="top_bar_user">
-                                    @guest
-                                    <div><a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập') }}</a></div>
-                                    @else
-                                    <div><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                               <div class="top_bar_user">
+                                @guest
+                            <div><a class="nav-link" href="{{ route('login') }}">{{ __('Đăng Nhập') }}</a>
+                            </div>
+                            <div><a class="nav-link" href="{{ route('register') }}">{{ __('Đăng Ký') }}</a></div>
+                              @else
+                            <div><a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             {{ __('Đăng Xuất') }}
                                             <div>|{{ Auth::user()->name }}</div>

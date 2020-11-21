@@ -12,19 +12,19 @@
     Danh Sách Danh Mục
   </button>
   <table class="table table-bordered">
-  <thead>
+  <thead style="text-align:center">
     <tr>
       <th scope="col">Tên Danh Mục</th>
       <th scope="col">Hình Ảnh</th>
       <th scope="col">Trạng Thái</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody style="text-align:center">
   	@foreach($all_category as $key =>$cate)
     <tr>
-      <td>{{$cate->Name_category}}</td>
-      <td>
-      	<img src="public/uploads/category/{{$cate->Image_category}}" width="60px">
+      <td>{{$cate->name_category}}</td>
+      <td class="d-flex justify-content-center">
+      	<img src="public/uploads/category/{{$cate->image_category}}" width="60px">
       </td>
       <td>
         <a href="{{URL::to('/edit_category/'.$cate->id_category)}}" class="btn btn-primary btn-xs"><i class="far fa-edit"></i></a>

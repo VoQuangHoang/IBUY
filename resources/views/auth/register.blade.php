@@ -34,19 +34,26 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Tạo một tài khoản!</h1>
               </div>
-              <form class="user"  action="{{ route('register') }}" method="post">
+              <form class="user"  action="{{ route('register') }}" method="post" class="form-horizontal style-form" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <input type="text" name="name" value="{{ old('name') }}" class="form-control form-control-user" id="exampleFirstName" placeholder="Nhập tên tài khoản...">
                 </div>
                 <div class="form-group">
+                    <input type="text" name="gender" value="{{ old('gender') }}" class="form-control form-control-user" id="exampleFirstGender" placeholder="Giới tính...">
+                </div>
+                <div class="form-group">
+                <label for="exampleFormControlFile1">Hình Ảnh</label><br>
+                <input type="file" name="image" id="formGroupExampleInput" placeholder="Thêm tên danh mục" required>
+                </div>
+                <div class="form-group">
                   <input type="email" name="email" value="{{ old('email') }}" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nhập email...">
                 </div>
                 <div class="form-group">
-                  <input type="phone" name="phone" value="{{ old('phone') }}" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nhập Số Điện Thoại...">
+                  <input type="phone" name="phone" value="{{ old('phone') }}" class="form-control form-control-user" id="exampleInputPhone" placeholder="Nhập Số Điện Thoại...">
                 </div>
                 <div class="form-group">
-                  <input type="text" name="diachi" value="{{ old('diachi') }}" class="form-control form-control-user" id="exampleInputEmail" placeholder="Nhập địa chỉ...">
+                  <input type="text" name="address" value="{{ old('address') }}" class="form-control form-control-user" id="exampleInputAddress" placeholder="Nhập địa chỉ...">
                 </div>
                 <div class="form-group">
                   <input id="password" type="password" class="form-control form-control-user" name="password" required autocomplete="new-password" placeholder="Nhập mật Khẩu...">

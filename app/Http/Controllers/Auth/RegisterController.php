@@ -51,9 +51,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'gender' => ['required', 'string', 'max:5'],
+            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required','min:11','numeric'],
-            'diachi' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -66,11 +68,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $name = $data['image'];
+        $imagename = $name->getClientOriginalExtension();
+        $imagenames = time().'.'.$imagename;
+        $data['image']->move(public_path('/uploads/user'), $imagenames);
+        $data['image'] = $imagenames;
         return User::create([
             'name' => $data['name'],
+            'gender' => $data['gender'],
+            'image' => $data['image'],
             'email' => $data['email'],
             'phone' => $data['phone'],
-            'diachi' => $data['diachi'],
+            'address' => $data['address'],
             'password' => Hash::make($data['password']),
         ]);
     }

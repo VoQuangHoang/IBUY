@@ -15,21 +15,32 @@
   <thead>
     <tr>
       <th scope="col">Tên Tài Khoản</th>
+      <th scope="col">Hình Ảnh</th>
       <th scope="col">Email</th>
+      <th scope="col">Giới Tính</th>
       <th scope="col">Số Điện Thoại</th>
       <th scope="col">Địa Chỉ</th>
-      <th scope="col">Xóa</th>
+      <th scope="col">Phân Quyền</th>
+      <th scope="col">Tình Trạng</th>
     </tr>
   </thead>
   <tbody>
   	@foreach($all_admin as $key =>$admin)
     <tr>
       <td>{{$admin->name}}</td>
-      <td>{{$admin->email}}</td>
-      <td>{{$admin->phone}}</td>
-      <td>{{$admin->diachi}}</td>
       <td>
-        <a onclick="return confirm('Bạn thật sự muốn xóa')" href="{{URL::to('/delete_admin/'.$admin->id)}}" class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i></a>
+        <img src="public/uploads/user/{{$admin->image}}" height="150" width="120">
+      </td>
+      <td>{{$admin->email}}</td>
+      <td>{{$admin->gender}}</td>
+      <td>{{$admin->phone}}</td>
+      <td>{{$admin->address}}</td>
+      <td>{{$admin->roles->name_roles}}</td>
+      <td>
+        <a href="{{URL::to('/edit_admin/'.$admin->id)}}" class="btn btn-primary btn-xs"><i class="far fa-edit"></i>
+        </a>
+        <a onclick="return confirm('Bạn thật sự muốn xóa')" href="{{URL::to('/delete_admin/'.$admin->id)}}" class="btn btn-danger btn-xs"><i class="far fa-trash-alt"></i>
+        </a>
       </td>
     </tr>
     @endforeach

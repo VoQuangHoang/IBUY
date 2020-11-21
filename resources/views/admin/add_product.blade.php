@@ -24,7 +24,7 @@
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br>
-                <input type="number" name="product_Quantity" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>
+                <input type="number" name="product_quantity" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>
               </div></br>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Hình Ảnh</label><br>
@@ -35,7 +35,7 @@
                 	<div class="col-md-4">
                 		<select class="form-control" name="category">
                       @foreach($category as $key => $cate)
-		                  <option value="{{$cate->id_category}}">{{$cate->Name_category}}</option>
+		                  <option value="{{$cate->id_category}}">{{$cate->name_category}}</option>
                       @endforeach
 		                </select>
                 	</div>

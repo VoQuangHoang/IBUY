@@ -14,24 +14,24 @@ class CategoryController extends Controller
     }
     public function save_category(Request $request){
     	$data = new Category;
-    	$data['Name_category'] = $request->category_name;
+    	$data['name_category'] = $request->category_name;
     	$get_image = $request->file('category_image');
     	if ($get_image) {
     		$get_name_image = $get_image->getClientOriginalName();
     		$name_image= current(explode('.', $get_name_image));
     		$new_image= rand(0,99).'.'.$get_image->getClientOriginalExtension();
     		$get_image->move('public/uploads/category',$new_image);
-    		$data['Image_category']= $new_image;		
+    		$data['image_category']= $new_image;		
     	}
     	// echo'<pre>';
     	// print_r($data);
     	// echo'<pre>';
         $data->save();
     	Session::put('message','Thêm danh mục thành công');
-    	return Redirect::to('add_category');
+    	return Redirect::to('all_category');
     }
     public function all_category(){
-    	$all_category = Category::orderBy('id_category','desc')->paginate(5);
+    	$all_category = Category::orderBy('id_category','desc')->paginate(4);
     	$manager_category = view('admin.all_category')
     	->with('all_category', $all_category);
     	return view('layouts.admin')
@@ -46,14 +46,14 @@ class CategoryController extends Controller
     }
     public function update_category(Request $request, $category_id){
         $data = array();
-        $data['Name_category'] = $request->category_name;
+        $data['name_category'] = $request->category_name;
         $get_image = $request->file('category_image');
         if ($get_image) {
             $get_name_image = $get_image->getClientOriginalName();
             $name_image= current(explode('.', $get_name_image));
             $new_image= rand(0,99).'.'.$get_image->getClientOriginalExtension();
             $get_image->move('public/uploads/category',$new_image);
-            $data['Image_category']= $new_image;     
+            $data['image_category']= $new_image;     
         }
         // echo'<pre>';
         // print_r($data);

@@ -8,11 +8,11 @@ class Product extends Model
 {
     public $timestamps = false; //set time to false
     protected $fillable = [
-    	'Id_category','Name_product','Price_product','Description_product','Quantity_product','Image_product'
+    	'id_category','name_product','price_product','description_product','quantity_product','image_product'
     ];
     protected $primaryKey = 'id_product';
  	protected $table = 'product';
  	public function Category(){
- 		return $this->hasMany('App\Models\Category','Id_category','id_category');
+ 		return $this->hasMany('App\Models\Category','id_category','id_category');
  	}
 }
