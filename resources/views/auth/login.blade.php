@@ -58,12 +58,15 @@
                     @if (Route::has('register'))
                     <a class="small" href="{{ route('register') }}">Tạo một tài khoản!</a>                
                     @endif        
-                    
                   </div>
+                  <div class="text-center">
+                    <br>
+                <div class="small text-gray-900 mb-4"><a href="{{URL::to('')}}"><i class="fas fa-chevron-circle-right"></i> QUAY LẠI TRANG CHỦ</a></div>
+              </div>
                 </div>
               </div>
               <div class="col-lg-6">
-                  <img src="{{('public/backend/img/banner-admin1.jpg')}}" width="90%" height="100%">
+                  <img src="{{('public/backend/img/banner-admin1.jpg')}}" style="max-height: 100%; max-width: 80%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
               </div>
             </div>
           </div>

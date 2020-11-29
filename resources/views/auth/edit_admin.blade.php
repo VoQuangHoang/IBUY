@@ -20,7 +20,7 @@
                 <div class="form-group">
                 <label for="exampleFormControlFile1">Hình Ảnh</label><br/>
                 <input type="file" name="image" id="formGroupExampleInput" placeholder="Hình ảnh">
-                <img src="{{url::to('public/uploads/user/'.$edit->image)}}" height="250" width="250">
+                <img src="{{url::to('public/uploads/user/'.$edit->image)}}" width="250">
                 </div>
                 <div class="form-group">
                   <label class="control-label col-md-3">Số Điện Thoại</label>

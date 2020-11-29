@@ -120,14 +120,14 @@ p a:hover::after
 {
 	opacity: 0.2;
 }
-::selection
+/* ::selection
 {
 	
-}
-p::selection
+} */
+/* p::selection
 {
 	
-}
+} */
 h1{font-size: 48px;}
 h2{font-size: 36px;}
 h3{font-size: 24px;}
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
-h1::selection, 
+/* h1::selection, 
 h2::selection, 
 h3::selection, 
 h4::selection, 
@@ -149,7 +149,7 @@ h5::selection,
 h6::selection
 {
 	
-}
+} */
 .form-control
 {
 	color: #db5246;
@@ -650,10 +650,10 @@ section
 	line-height: 48px;
 	cursor: pointer;
 }
-.custom_dropdown_placeholder i
+/* .custom_dropdown_placeholder i
 {
 	
-}
+} */
 .custom_list
 {
 	text-align: left;
@@ -1085,7 +1085,7 @@ select option
 	display: block;
 	position: relative;
 	border-bottom: solid 1px rgba(255,255,255,0.1);
-	vertical-align: middle;
+	/* vertical-align: middle; */
 }
 .page_menu_item > a
 {
@@ -1285,9 +1285,8 @@ select option
 
 .characteristics
 {
-	padding-top: 70px;
-	padding-bottom: 70px;
-	background-color: pink;
+	padding-top: 30px;
+	padding-bottom: 30px;
 }
 .char_item
 {
@@ -3323,12 +3322,12 @@ select option
 .brands
 {
 	width: 100%;
-	padding-top: 90px;
-	padding-bottom: 90px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 .brands_slider_container
 {
-	height: 130px;
+	height: 110px;
 	border: solid 1px #e8e8e8;
 	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 	padding-left: 97px;
@@ -3653,10 +3652,10 @@ select option
 {
 	font-weight: 500;
 }
-.logos
+/* .logos
 {
 	
-}
+} */
 .logos_list li
 {
 	display: inline-block;

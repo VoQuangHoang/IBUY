@@ -36,19 +36,21 @@
                         <p>{{$detail->description_product}}</p>
                     </div>
                     <div class="order_info d-flex flex-row">
-                        <form action="#">
+                        <form action="{{URL::to('/save_cart')}}" method="post">
+                            {{ csrf_field() }}
                             <div class="clearfix" style="z-index: 1000;">
 
                                 <!-- Product Quantity -->
                                 <div class="product_quantity clearfix">
                                     <span>Số lượng: </span>
-                                    <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+                                    <input id="quantity_input" name="qty" type="number" pattern="[0-9]*" min="1" value="1">
                                     <div class="quantity_buttons">
                                         <div id="quantity_inc_button" class="quantity_inc quantity_control"><i
                                                 class="fas fa-chevron-up"></i></div>
                                         <div id="quantity_dec_button" class="quantity_dec quantity_control"><i
                                                 class="fas fa-chevron-down"></i></div>
                                     </div>
+                                    <input type="hidden" name="productid_hidden" value="{{$detail -> id_product}}">
                                 </div>
 
                                 <!-- Product Color -->
@@ -68,9 +70,9 @@
 
                             </div>
 
-                            <div class="product_price">{{number_format($detail->price_product)}} VNĐ</div>
+                            <div class="product_price">{{number_format($detail->price_product, 0, ',', '.')}} VNĐ</div>
                             <div class="button_container">
-                                <button type="button" class="button cart_button">Mua Ngay</button>
+                                <button type="submit" class="button cart_button">Mua Ngay</button>
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
                             </div>
 

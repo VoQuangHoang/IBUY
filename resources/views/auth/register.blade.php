@@ -29,7 +29,7 @@
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-7">
             <div class="p-5">
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Tạo một tài khoản!</h1>
@@ -68,10 +68,17 @@
                 </div>
                 <button class="btn btn-primary btn-user btn-block" type="submit"> Đăng Kí</button>
               </form>
+              <br>
+              <div class="text-center">
+                <div class="small text-gray-900 mb-4">Bạn đã có tài khoản. Quay lại trang <a href="{{URL::to('login')}}">ĐĂNG NHẬP</a></div>
+              </div>
+              <div class="text-center">
+                <div class="small text-gray-900 mb-4"><a href="{{URL::to('')}}"><i class="fas fa-chevron-circle-right"></i> QUAY LẠI TRANG CHỦ</a></div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6">
-                  <img src="{{('public/backend/img/banner-admin1.jpg')}}" width="90%" height="100%">
+          <div class="col-lg-5">
+                  <img src="{{('public/backend/img/banner-admin1.jpg')}}" width="100%" style="max-height: 100%; max-width: 80%; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;">
               </div>
         </div>
       </div>

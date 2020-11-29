@@ -8,18 +8,20 @@
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/bootstrap4/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css"
-        href="{{asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}">
-    <link rel="stylesheet" type="text/css"
-        href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
-    <link rel="stylesheet" type="text/css"
-        href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/slick-1.8.0/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/main_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/responsive.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/product_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/product_responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/cart_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/cart_responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/shop_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/shop_responsive.css')}}">
 
 </head>
 
@@ -100,7 +102,7 @@
                         <!-- Logo -->
                         <div class="col-lg-2 col-sm-3 col-3 order-1">
                             <div class="logo_container">
-                                <div class="logo"><a href="#">iBuy</a></div>
+                                <div class="logo"><a href="{{URL::to('/')}}">iBuy</a></div>
                             </div>
                         </div>
 
@@ -156,7 +158,7 @@
 										<div class="cart_count"><span>10</span></div> -->
                                         </div>
                                         <div class="cart_content">
-                                            <div class="cart_text"><a href="#"><i class="fas fa-shopping-cart"
+                                            <div class="cart_text"><a href="{{URL::to('show_cart')}}"><i class="fas fa-shopping-cart"
                                                         style="font-size:24px; color: #0e8ce4"></i> Giỏ hàng</a></div>
                                             <!-- <div class="cart_price"></div> -->
                                         </div>
@@ -188,7 +190,7 @@
 
                                     <ul class="cat_menu">
 										@foreach($loai_sp as $loai)
-											<li><a href="#">{{$loai->name_category}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
+											<li><a href="{{URL::to('/product_category/'.$loai->id_category)}}">{{$loai->name_category}}<i class="fas fa-chevron-right ml-auto"></i></a></li>
                                         @endforeach
                                         <!-- <li><a href="#">Computers & Laptops<i class="fas fa-chevron-right ml-auto"></i></a></li>
                                         <li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li> -->
@@ -261,9 +263,9 @@
 											<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
 										</ul>
 									</li> -->
-                                        <li><a href="blog.html">Sản phẩm<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="blog.html">Giới thiệu<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="contact.html">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{URL::to('shop')}}">Sản phẩm<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{URL::to('about')}}">Giới thiệu<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{URL::to('contact')}}">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -560,28 +562,22 @@
                         <div class="footer_column">
                             <div class="footer_title">Tất cả danh mục</div>
                             <ul class="footer_list">
-                                <li><a href="#">Samsung</a></li>
-                                <li><a href="#">Samsung</a></li>
-                                <li><a href="#">Samsung</a></li>
-                                <li><a href="#">Samsung</a></li>
-                                <li><a href="#">Samsung</a></li>
-                            </ul>
-                            <div class="footer_subtitle">Samsung</div>
-                            <ul class="footer_list">
-                                <li><a href="#">Samsung</a></li>
+                                @foreach($loai_sp as $loai)
+								<li><a href="#">{{$loai->name_category}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-2">
                         <div class="footer_column">
-                            <ul class="footer_list footer_list_2">
+                            <!-- <ul class="footer_list footer_list_2">
                                 <li><a href="#">Apple</a></li>
                                 <li><a href="#">Apple</a></li>
                                 <li><a href="#">Apple</a></li>
                                 <li><a href="#">Apple</a></li>
                                 <li><a href="#">Apple</a></li>
-                            </ul>
+                            </ul> -->
                         </div>
                     </div>
 
@@ -648,6 +644,13 @@
     <script src="{{asset('public/frontend/plugins/slick-1.8.0/slick.js')}}"></script>
     <script src="{{asset('public/frontend/plugins/easing/easing.js')}}"></script>
     <script src="{{asset('public/frontend/js/custom.js')}}"></script>
+    <script src="{{asset('public/frontend/js/product_custom.js')}}"></script>
+    <script src="{{asset('public/frontend/js/cart_custom.js')}}"></script>
+
+    <script src="{{asset('public/frontend/plugins/Isotope/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('public/frontend/plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
+    <script src="{{asset('public/frontend/plugins/parallax-js-master/parallax.min.js')}}"></script>
+    <script src="{{asset('public/frontend/js/shop_custom.js')}}"></script>
 </body>
 
 </html>

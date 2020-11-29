@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
 use Session;
 use App\Models\Product;
-// session_start();
 use App\Models\Category;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
-
+session_start();
 class ProductController extends Controller
 {
     public function __construct()
