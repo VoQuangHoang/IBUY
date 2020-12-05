@@ -26,8 +26,11 @@ class HomeController extends Controller
     {
         $category = Category::orderby('id_category','desc')->get();
         $products = Product::join('categories','categories.id_category','=','product.id_category')
-   		->orderby('product.id_product','desc')
-   		->paginate(100);
-        return view('page.home', compact('category','products'));
+   		->where('promotion_price', '=', 0)->orderby('product.id_product','desc')
+           ->get();
+        $products_sale = Product::join('categories','categories.id_category','=','product.id_category')
+   		->where('promotion_price', '>', 0)->orderby('product.id_product','desc')
+   		->get();   
+        return view('page.home', compact('category','products', 'products_sale'));
     }
 }

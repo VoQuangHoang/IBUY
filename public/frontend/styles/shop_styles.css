@@ -37,7 +37,9 @@
 	width: 100%;
 	height: 100%;
 }
-
+.home_title{
+	color: white;
+}
 /*********************************
 5. Shop
 *********************************/
@@ -61,7 +63,7 @@
 .shop_product_count
 {
 	font-size: 14px;
-	font-weight: 500;
+	font-weight: 600;
 	float: left;
 }
 .shop_product_count span
@@ -180,7 +182,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	width: 20%;
+	width: 25%;
 	background: #FFFFFF;
 	cursor: pointer;
 	padding-top: 40px;
@@ -241,17 +243,17 @@
 	background: #8d8d8d;
 	content: '';
 }
-.product_name
+.product_names
 {
 	margin-top: 4px;
 	overflow: hidden;
 }
-.product_name div
+.product_names div
 {
 	width: 100%;
 	
 }
-.product_name div a
+.product_names div a
 {
 	font-size: 14px;
 	font-weight: 400;
@@ -263,7 +265,7 @@
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
-.product_name div a:hover
+.product_names div a:hover
 {
 	color: #0e8ce4;
 }

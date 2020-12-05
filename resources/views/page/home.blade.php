@@ -5,12 +5,11 @@
         <div class="banner">
 			<div class="container">
 				<div class="row">
-            <div class="banner_background"
-                style="background-image:url(public/frontend/images/apple-iphone-12-banner.jpg)"></div>
+            <div class="banner_background" style="background-image:url(public/frontend/images/apple-iphone-12-banner.jpg)"></div>
             <div class="container fill_height">
                 <div class="row fill_height">
                     <!-- <div class="banner_product_image"><img src="public/frontend/images/banner_product.png" alt=""></div> -->
-                    <div class="col-lg-5 offset-lg-8 fill_height">
+                    <div class="col-lg-5 offset-lg-7 fill_height" style="text-align: end;">
                         <div class="banner_content">
                             <h2 class="banner_text">Apple Iphone 12 <br> Đã có hàng</h2>
                             <div class="banner_price">
@@ -36,15 +35,15 @@
                             style="width: 100%;  margin-left: 15px;">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="https://cdn.tgdd.vn/2020/10/banner/800-170-800x170-45.png" class=""
+                                    <img src="{{asset('public/frontend/images/banner3.png')}}" class=""
                                         alt="..." style="width:99%">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://cdn.tgdd.vn/2020/10/banner/iphone-12-800-170-800x170-3.png"
+                                    <img src="{{asset('public/frontend/images/banner1.png')}}"
                                         class="" alt="..." style="width:99%">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://cdn.tgdd.vn/2020/10/banner/a51-71-800-170-800x170.png" class=""
+                                    <img src="{{asset('public/frontend/images/banner2.png')}}" class=""
                                         alt="..." style="width:99%">
                                 </div>
                             </div>
@@ -54,11 +53,11 @@
                     <div class="col-md-4" style="padding: 0;margin-left: 0px;">
                         <div class="quangcao" style="margin-left: 15px;">
                             <div class="anh1">
-                                <img src="https://cdn.tgdd.vn/2020/09/banner/A31-11-390-80-390x80-4.png" alt=""
+                                <img src="{{asset('public/frontend/images/banner4.png')}}" alt=""
                                     style="padding-bottom: 10px; width:100%;">
                             </div>
                             <div class="anh2">
-                                <img src="https://cdn.tgdd.vn/2020/09/banner/sticky-oppo-a523-390-80-390x80.png" alt="" style="width:100%">
+                                <img src="{{asset('public/frontend/images/banner5.png')}}" alt="" style="width:100%">
                             </div>
 
 
@@ -75,7 +74,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="viewed_title_container">
-                            <h3 class="viewed_title">SẢN PHẨM PHỔ BIẾN</h3>
+                            <h3 class="viewed_title">SẢN PHẨM MỚI</h3>
                             <div class="viewed_nav_container">
                                 <div class="viewed_nav viewed_prev"><i class="fas fa-chevron-left"></i></div>
                                 <div class="viewed_nav viewed_next"><i class="fas fa-chevron-right"></i></div>
@@ -127,8 +126,8 @@
                                         class="viewed_item is_new d-flex flex-column align-items-center justify-content-center text-center">
                                         <div class="viewed_image"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt=""></div>
                                         <div class="viewed_content text-center">
-                                            <div class="viewed_price">{{number_format($product->price_product, 0, ',', '.')}} VNĐ</div>
-                                            <div class="viewed_name"><a href="{{URL::to('/product_detail/'.$product->id_product)}}">{{$product->name_product}}</a></div>
+                                            <div class="viewed_price">{{number_format($product->price_product, 0, ',', '.').'₫'}}</div>
+                                            <div class="viewed_name" style="min-height: 42px;"><a href="{{URL::to('/product_detail/'.$product->id_product)}}">{{$product->name_product}}</a></div>
                                         </div>
                                         <ul class="item_marks">
                                             <li class="item_mark item_discount">-25%</li>
@@ -152,9 +151,9 @@
                     <div class="col">
                         <div class="tabbed_container">
                             <div class="tabs clearfix tabs-right">
-                                <div class="new_arrivals_title">SẢN PHẨM MỚI</div>
+                                <div class="new_arrivals_title">SẢN PHẨM KHUYẾN MÃI</div>
                                 <ul class="clearfix">
-                                    <li class="active">Mới cập nhật</li>
+                                    <li class="active">Khuyến mãi</li>
                                     <!-- <li>Audio & Video</li>
                                     <li>Laptops & Computers</li> -->
                                 </ul>
@@ -189,24 +188,29 @@
                                     </div> -->
 
                                     <!-- Best Sellers Item -->
-                                    @foreach($products as $product)
+                                    @foreach($products_sale as $product)
                                   
                                     
-                                    <div class="bestsellers_item">
+                                    <div class="bestsellers_item discount">
                                         <div
                                             class="bestsellers_item_container d-flex flex-row align-items-center justify-content-start">
-                                            <div class="bestsellers_image"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt=""></div>
+                                            <div class="bestsellers_image"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt="" style=" max-width: 100px;"></div>
                                             <div class="bestsellers_content">
                                                 <div class="bestsellers_category"><a href="#"></a></div>
                                                 <div class="bestsellers_name"><a href="{{URL::to('/product_detail/'.$product->id_product)}}">{{$product->name_product}}</a></div>
-                                                <div class="rating_r rating_r_4 bestsellers_rating">
-                                                    <i></i><i></i><i></i><i></i><i></i></div>
-                                                <div class="bestsellers_price discount">{{number_format($product->price_product)}} VNĐ</div>
+                                                <div class="rating_r rating_r_5 bestsellers_rating">
+                                                    <i></i>
+                                                    <i></i>
+                                                    <i></i>
+                                                    <i></i>
+                                                    <i></i>
+                                                </div>
+                                                <div class="bestsellers_price discount">{{number_format(($product->price_product*(1-($product->promotion_price/100))), 0, ',', '.').'₫'}} <span>{{number_format($product->price_product, 0, ',', '.').'₫'}}</span></div>
                                             </div>
                                         </div>
                                         <div class="bestsellers_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="bestsellers_marks">
-                                            <li class="bestsellers_mark bestsellers_discount">-25%</li>
+                                            <li class="bestsellers_mark bestsellers_discount">{{$product->promotion_price}}%</li>
                                             <li class="bestsellers_mark bestsellers_new">new</li>
                                         </ul>
                                     </div>
@@ -233,15 +237,19 @@
 
                         <!-- Advert Item -->
 
-                        <div class="advert d-flex flex-row align-items-center justify-content-start">
+                        <div class="advert d-flex flex-row justify-content-start">
                             <div class="advert_content">
-                                <div class="advert_title"><a href="#">Trends 2018</a></div>
-                                <div class="advert_text">Lorem ipsum dolor sit amet, consectetur adipiscing Donec et.
+                                <div class="advert_subtitle">Tin mới</div>
+                                <div class="ml-auto">
+                                    <div class="advert_image"><img src="{{asset('public/frontend/images/new1.jpg')}}" alt=""></div>
+                                </div><br>
+                                <div class="advert_title">
+                                    <a>Cách Galaxy Tab A7 làm mới trải nghiệm giải trí cho người trẻ</a>
+                                </div>
+                                <div class="advert_text">Màn hình lớn, hệ thống 4 loa âm thanh vòm Dolby Atmos, hiệu suất ổn hội tụ trong thiết kế tinh giản của Galaxy Tab A7 giúp làm mới trải nghiệm giải trí.
                                 </div>
                             </div>
-                            <div class="ml-auto">
-                                <div class="advert_image"><img src="images/adv_1.png" alt=""></div>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -251,13 +259,17 @@
 
                         <div class="advert d-flex flex-row align-items-center justify-content-start">
                             <div class="advert_content">
-                                <div class="advert_subtitle">Trends 2018</div>
-                                <div class="advert_title_2"><a href="#">Sale -45%</a></div>
-                                <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>
+                                <div class="advert_subtitle">Tin mới</div>
+                                <!-- <div class="advert_title_2"><a href="#">Sale -45%</a></div> -->
+                                <div class="ml-auto">
+                                    <div class="advert_image"><img src="{{asset('public/frontend/images/new2.jpg')}}" alt=""></div>
+                                </div><br>
+                                <div class="advert_title">
+                                    <a>Note20 Ultra 5G giúp bạn làm việc, chơi game theo cách chưa từng có</a>
+                                </div>
+                                <div class="advert_text">Không chỉ giới thiệu bộ đôi Note20, tai nghe "hạt đậu", Tab S mới hay smartphone màn hình gập, sự kiện Unpacked của Samsung kể câu chuyện khác lạ về tương lai của người dùng.</div>
                             </div>
-                            <div class="ml-auto">
-                                <div class="advert_image"><img src="images/adv_2.png" alt=""></div>
-                            </div>
+                            
                         </div>
                     </div>
 
@@ -265,14 +277,16 @@
 
                         <!-- Advert Item -->
 
-                        <div class="advert d-flex flex-row align-items-center justify-content-start">
+                        <div class="advert d-flex flex-row justify-content-start">
                             <div class="advert_content">
-                                <div class="advert_title"><a href="#">Trends 2018</a></div>
-                                <div class="advert_text">Lorem ipsum dolor sit amet, consectetur.</div>
+                                <div class="advert_subtitle">Tin mới</div>
+                                <div class="ml-auto">
+                                    <div class="advert_image"><img src="{{asset('public/frontend/images/new3.jpg')}}" alt=""></div>
+                                </div><br>
+                                <div class="advert_title"><a href="#">Nhiều mẫu iPhone cũ đang giảm giá</a></div>
+                                <div class="advert_text">Một số cửa hàng vừa giảm giá nhiều mẫu iPhone qua sử dụng, đáng chú ý như iPhone 11 Pro Max, iPhone 11 hay iPhone XR.</div>
                             </div>
-                            <div class="ml-auto">
-                                <div class="advert_image"><img src="images/adv_3.png" alt=""></div>
-                            </div>
+                            
                         </div>
                     </div>
 

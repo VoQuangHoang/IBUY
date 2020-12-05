@@ -4,8 +4,8 @@
 <!-- Home -->
 
 <div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="public/frontend/images/shop_background.jpg"></div>
-		<div class="home_overlay"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{asset('public/frontend/images/shop_background2.jpg')}}"></div>
+		<!-- <div class="home_overlay"></div> -->
 		<div class="home_content d-flex flex-column align-items-center justify-content-center">
 			<h2 class="home_title" style="text-transform: uppercase;">{{$category->name_category}}</h2>
 		</div>
@@ -24,7 +24,7 @@
 
 					<div class="shop_content">
 						<div class="shop_bar clearfix">
-							<div class="shop_product_count"><span>186</span> sản phẩm</div>
+							<div class="shop_product_count"><span>{{count($product_type)}}</span> sản phẩm thuộc hãng <span class="text-uppercase">{{$category->name_category}}</span></div>
 						</div>
 
 						<div class="product_grid">

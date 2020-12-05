@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="OneTech shop project">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/bootstrap4/bootstrap.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/frontend/images/smartphone.svg') }}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/bootstrap4/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/fontawesome-free-5.15.1/css/all.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/plugins/OwlCarousel2-2.2.1/animate.css')}}">
@@ -22,6 +23,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/cart_responsive.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/shop_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/shop_responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/contact_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/contact_responsive.css')}}">
 
 </head>
 
@@ -45,7 +48,7 @@
                             </div>
                             <div class="top_bar_contact_item">
                                 <div class="top_bar_icon"><img src="{{asset('public/frontend/images/mail.png')}}" alt=""></div><a
-                                    href="mailto:fastsales@gmail.com">ibuysupport@gmail.com</a>
+                                    href="mailto:ibuysupport@gmail.com">ibuysupport@gmail.com</a>
                             </div>
                             <div class="top_bar_content ml-auto">
                                 <!-- <div class="top_bar_menu">
@@ -69,23 +72,28 @@
 								</ul>
 							</div> -->
                                 <div class="top_bar_user">
-                                @guest
-                                    <div class="user_icon"><img src="images/user.svg" alt=""></div>
-                                    <div><a href="{{ route('register') }}">Đăng ký</a></div>
-                                    <div><a href="{{ route('login') }}">Đăng nhập</a></div>
-                                @else 
-                                <div>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Đăng Xuất
-                                        <div>| {{ Auth::user()->name }}</div>
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-                                        @csrf
-                                    </form>
-                                    </div>
-                                @endguest
-
+                                    @guest
+                                        <div class="user_icon"><img src="" alt=""></div>
+                                        <div><a href="{{ route('register') }}">Đăng ký</a></div>
+                                        <div><a href="{{ route('login') }}">Đăng nhập</a></div>
+                                    @else 
+                                        <div class="top_bar_logout">
+                                            <div>Chào bạn, {{ Auth::user()->name }} |</div>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                            document.getElementById('logout-form').submit();">
+                                                    Đăng Xuất
+                                            </a>
+                                            
+                                            @if (Auth::user()->roles_id == 1)
+                                            <div> | </div>
+                                            <a href="{{URL::to('/admin')}}"><div>Trang quản lý</div></a>
+                                            @endif
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                @csrf
+                                            </form>
+                                            
+                                        </div>
+                                    @endguest
                                 </div>
                             </div>
                         </div>
@@ -111,27 +119,24 @@
                             <div class="header_search">
                                 <div class="header_search_content">
                                     <div class="header_search_form_container">
-                                        <form action="#" class="header_search_form clearfix">
-                                            <input type="search" required="required" class="header_search_input"
-                                                placeholder="Tìm kiếm sản phẩm...">
+                                        <form action="{{URL::to('search')}}" method="get" class="header_search_form clearfix">
+                                            <input type="search" name="keywords" required="required" class="header_search_input"
+                                                placeholder="Tìm kiếm sản phẩm..." value="">
                                             <div class="custom_dropdown">
                                                 <div class="custom_dropdown_list">
-                                                    <span class="custom_dropdown_placeholder clc"></span>
+                                                    <span class="custom_dropdown_placeholder clc">Tất cả sản phẩm</span>
                                                     <!-- <i class="fas fa-chevron-down"></i> -->
                                                     <ul class="custom_list clc">
-                                                        <li><a class="clc" href="#"></a></li>
-                                                        <li><a class="clc" href="#"></a></li>
-                                                        <li><a class="clc" href="#"></a></li>
-                                                        <li><a class="clc" href="#"></a></li>
                                                         <li><a class="clc" href="#"></a></li>
                                                         <li><a class="clc" href="#"></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <button type="submit" class="header_search_button trans_300"
-                                                value="Submit"><img src="{{asset('public/frontend/images/search.png')}}"
+                                                value="Submit"><img src="{{asset('/public/frontend/images/search.png')}}"
                                                     alt=""></button>
                                         </form>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +148,7 @@
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="#"><i class="far fa-user"
+                                        <div class="wishlist_text"><a href="#"><i class="fas fa-user"
                                                     style="font-size:24px; color: #0e8ce4"></i> Tài khoản</a></div>
                                         <!-- <div class="wishlist_count"></div> -->
                                     </div>
@@ -218,7 +223,7 @@
 
                                 <div class="main_nav_menu m-auto">
                                     <ul class="standard_dropdown main_nav_dropdown">
-                                        <li><a href="#">Trang chủ <i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{URL::to('/')}}">Trang chủ <i class="fas fa-chevron-down"></i></a></li>
                                         <!-- <li class="hassubs">
 										<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
 										<ul>
@@ -266,6 +271,7 @@
                                         <li><a href="{{URL::to('shop')}}">Sản phẩm<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="{{URL::to('about')}}">Giới thiệu<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="{{URL::to('contact')}}">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
+                                        <li><a href="{{URL::to('contact')}}">Thanh toán<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -368,11 +374,11 @@
 
                                 <div class="menu_contact">
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>
+                                        <div class="menu_contact_icon"><img src="public/frontend/images/phone_white.png" alt=""></div>
                                         +38 068 005 3570
                                     </div>
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a
+                                        <div class="menu_contact_icon"><img src="public/frontend/images/mail_white.png" alt=""></div><a
                                             href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
                                     </div>
                                 </div>
@@ -430,6 +436,10 @@
                                     <div class="brands_item d-flex flex-column justify-content-center"><img
                                             src="{{asset('public/frontend/images/brands_8.jpg')}}" alt=""></div>
                                 </div>
+                                <div class="owl-item">
+                                    <div class="brands_item d-flex flex-column justify-content-center"><img
+                                            src="{{asset('public/frontend/images/brands_9.jpg')}}" alt=""></div>
+                                </div>
 
                             </div>
 
@@ -455,8 +465,8 @@
                         <div class="char_item d-flex flex-row align-items-center justify-content-start">
                             <div class="char_icon"><img src="{{asset('public/frontend/images/char_1.png')}}" alt=""></div>
                             <div class="char_content">
-                                <div class="char_title">Free Delivery</div>
-                                <div class="char_subtitle">from $50</div>
+                                <div class="char_title">GIAO HÀNG</div>
+                                <div class="char_subtitle">NHANH</div>
                             </div>
                         </div>
                     </div>
@@ -467,8 +477,8 @@
                         <div class="char_item d-flex flex-row align-items-center justify-content-start">
                             <div class="char_icon"><img src="{{asset('public/frontend/images/char_2.png')}}" alt=""></div>
                             <div class="char_content">
-                                <div class="char_title">Free Delivery</div>
-                                <div class="char_subtitle">from $50</div>
+                                <div class="char_title">ĐỔI TRẢ</div>
+                                <div class="char_subtitle">15 ngày</div>
                             </div>
                         </div>
                     </div>
@@ -479,8 +489,8 @@
                         <div class="char_item d-flex flex-row align-items-center justify-content-start">
                             <div class="char_icon"><img src="{{asset('public/frontend/images/char_3.png')}}" alt=""></div>
                             <div class="char_content">
-                                <div class="char_title">Free Delivery</div>
-                                <div class="char_subtitle">from $50</div>
+                                <div class="char_title">GIÁ CẢ</div>
+                                <div class="char_subtitle">HỢP LÍ</div>
                             </div>
                         </div>
                     </div>
@@ -491,8 +501,8 @@
                         <div class="char_item d-flex flex-row align-items-center justify-content-start">
                             <div class="char_icon"><img src="{{asset('public/frontend/images/char_4.png')}}" alt=""></div>
                             <div class="char_content">
-                                <div class="char_title">Free Delivery</div>
-                                <div class="char_subtitle">from $50</div>
+                                <div class="char_title">THƯƠNG HIỆU</div>
+                                <div class="char_subtitle">ĐẢM BẢO</div>
                             </div>
                         </div>
                     </div>
@@ -509,7 +519,7 @@
                         <div
                             class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
                             <div class="newsletter_title_container">
-                                <div class="newsletter_icon"><img src="images/send.png" alt=""></div>
+                                <div class="newsletter_icon"><img src="{{asset('public/frontend/images/send.png')}}" alt=""></div>
                                 <div class="newsletter_title">Đăng ký để nhận tin mới nhất</div>
                                 <div class="newsletter_text">
                                     <p>...và có thể nhận được cơ hội khuyến mãi.</p>
@@ -619,10 +629,10 @@
                             </div>
                             <div class="logos ml-sm-auto">
                                 <ul class="logos_list">
-                                    <li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-                                    <li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
+                                    <li><a href="#"><img src="{{asset('public/frontend/images/logos_1.png')}}" alt=""></a></li>
+                                    <li><a href="#"><img src="{{asset('public/frontend/images/logos_2.png')}}" alt=""></a></li>
+                                    <li><a href="#"><img src="{{asset('public/frontend/images/logos_3.png')}}" alt=""></a></li>
+                                    <li><a href="#"><img src="{{asset('public/frontend/images/logos_4.png')}}" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -632,9 +642,9 @@
         </div>
     </div>
 
-    <script src="{{asset('public/frontend/js/jquery-3.3.1.min.js')}}"></script>
-    <script src="{{asset('public/frontend/styles/bootstrap4/popper.js')}}"></script>
-    <script src="{{asset('public/frontend/styles/bootstrap4/bootstrap.min.js')}}"></script>
+    <script src="{{asset('public/frontend/js/jquery-3.5.1.min.js')}}"></script>
+    <script src="{{asset('public/frontend/styles/bootstrap4/js/popper.min.js')}}"></script>
+    <script src="{{asset('public/frontend/styles/bootstrap4/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/frontend/plugins/greensock/TweenMax.min.js')}}"></script>
     <script src="{{asset('public/frontend/plugins/greensock/TimelineMax.min.js')}}"></script>
     <script src="{{asset('public/frontend/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
@@ -651,6 +661,9 @@
     <script src="{{asset('public/frontend/plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
     <script src="{{asset('public/frontend/plugins/parallax-js-master/parallax.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/shop_custom.js')}}"></script>
+    
+
+    <script src="{{asset('public/frontend/js/form-validation.js')}}"></script>
 </body>
 
 </html>

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Redirect;
 session_start();
 class CategoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', 'role:admin']);//Hàng rào 
+    }
     public function category(){
     	return view('admin.add_category');
     }
@@ -27,11 +31,11 @@ class CategoryController extends Controller
     	// print_r($data);
     	// echo'<pre>';
         $data->save();
-    	Session::put('message','Thêm danh mục thành công');
+    	Session::put('message','Thêm thương hiệu thành công');
     	return Redirect::to('all_category');
     }
     public function all_category(){
-    	$all_category = Category::orderBy('id_category','desc')->paginate(4);
+    	$all_category = Category::orderBy('id_category','desc')->paginate(6);
     	$manager_category = view('admin.all_category')
     	->with('all_category', $all_category);
     	return view('layouts.admin')
@@ -59,7 +63,7 @@ class CategoryController extends Controller
         // print_r($data);
         // echo'<pre>';
         Category::where('id_category',$category_id)->update($data);
-        Session::put('message','Cập nhập danh mục thành công');
+        Session::put('message','Cập nhập thương hiệu thành công');
         return Redirect::to('all_category');
     }
     public function delete_category($category_id){
@@ -68,4 +72,6 @@ class CategoryController extends Controller
         Session::put('message','Xóa Thành Công');
         return Redirect::to('all_category');
     }
+
+    
 }

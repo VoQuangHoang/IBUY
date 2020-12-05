@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');//Hàng rào 
+        $this->middleware(['auth', 'role:admin']);//Hàng rào 
     }
     public function product(){
      	$category = Category::orderby('id_category','desc')->get();
@@ -21,7 +21,8 @@ class ProductController extends Controller
     public function save_product(Request $request){
     	$data = new Product;
     	$data['name_product'] = $request->product_name;
-    	$data['price_product'] = $request->product_price;
+		$data['price_product'] = $request->product_price;
+		$data['promotion_price'] = $request->promotion_price;
     	$data['description_product'] = $request->product_desc;
     	$data['quantity_product'] = $request->product_quantity;
     	$data['id_category'] = $request->category;
@@ -65,7 +66,8 @@ class ProductController extends Controller
    	public function update_product(Request $request, $product_id){
    		$data = array();
     	$data['name_product'] = $request->product_name;
-    	$data['price_product'] = $request->product_price;
+		$data['price_product'] = $request->product_price;
+		$data['promotion_price'] = $request->promotion_price;
     	$data['description_product'] = $request->product_desc;
     	$data['quantity_product'] = $request->product_quantity;
     	$data['id_category'] = $request->category;

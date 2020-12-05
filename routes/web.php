@@ -36,7 +36,15 @@ Route::post('save_category','CategoryController@save_category');
 Route::get('all_category','CategoryController@all_category');
 Route::get('delete_category/{id_category}','CategoryController@delete_category');
 Route::get('edit_category/{id_category}','CategoryController@edit_category');
-Route::post('update_category/{id_category}','CategoryController@update_category');	
+Route::post('update_category/{id_category}','CategoryController@update_category');
+
+//Payment
+Route::get('add_payment','PaymentController@payment');
+Route::post('save_payment','PaymentController@save_payment');
+Route::get('all_payment','PaymentController@all_payment');
+Route::get('delete_payment/{payment_id}','PaymentController@delete_payment');
+Route::get('edit_payment/{payment_id}','PaymentController@edit_payment');
+Route::post('update_payment/{payment_id}','PaymentController@update_payment');
 
 //Admin Product
 Route::get('add_product','ProductController@product');
@@ -50,6 +58,16 @@ Route::get('delete_product/{id_product}','ProductController@delete_product');
 Route::get('product_detail/{id_product}', 'PageController@getdetails');
 Route::get('shop', 'PageController@getShop');
 Route::get('product_category/{type}', 'PageController@getProducbytype');
+Route::get('search', 'PageController@search');
+
+//Comments
+Route::post('add-comment/{id_product}', 'CommentController@add_comment');
+Route::get('manager-comment', 'CommentController@manager_comment');
+Route::get('comment-by-product/{id_product}', 'CommentController@comment_by_product');
+Route::get('delete-comment/{id}', 'CommentController@delete_comment');
+
+//Contact
+Route::post('add-contact', 'PageController@add_contact');
 
 //Cart
 Route::post('save_cart','CartController@save_cart');
@@ -57,12 +75,17 @@ Route::get('show_cart','CartController@show_cart');
 Route::get('delete-to-cart/{rowId}','CartController@delete_to_cart');
 Route::post('update-cart-quantity','CartController@update_cart_quantity');
 
-//Checkout
+// Checkout
+Route::get('checkout','CheckoutController@checkout');
+Route::post('order-place','CheckoutController@order_place');
 
+//Order
+Route::get('manager-order','OrderController@manager_order');
+Route::get('view-order/{order_id}','OrderController@view_order');
 
 //Test
 Route::get('/abc', function () {
-    return view('page.cart');
+    return view('page.checkout');
 });
 
 

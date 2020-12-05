@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Comment;
+use App\Models\Contact;
+use App\User;
+use DB;
+use Session;
+session_start();
 
 use Illuminate\Http\Request;
 
@@ -12,18 +18,45 @@ class PageController extends Controller
         $category = Category::orderby('id_category','desc')->get();
         $product_detail = Product::join('categories','categories.id_category','=','product.id_category')
         -> where('product.id_product', $id_product)->get();
-        return view('page.detailproduct', compact('category','product_detail'));        
+        // $comments = Comment::where('id_product', $id_product)->get();
+        $comments = Comment::join('users', 'users.id', '=', 'comments.id_user')->where('id_product', $id_product)->select('comments.*','users.name','users.image')->get();
+        // echo'<pre>';
+         // print_r($comments);
+         
+         // echo'</pre>';
+
+        return view('page.detailproduct', compact('category','product_detail','comments'));        
     }
     public function getShop()    
     {   
         $category = Category::orderby('id_category','asc')->get();
-        $products = Product::orderby('id_product','desc')->paginate(10);
-        return view('page.shop', compact('products','category'));
+        $products = Product::orderby('id_product','desc')->paginate(12);
+        $productss = Product::orderby('id_product','desc')->get();
+        return view('page.shop', compact('products','category','productss'));
     }
 
     public function getProducbytype($type){
         $product_type = Product::where('id_category',$type)->orderBy('id_product', 'desc')->paginate(10);
         $category = Category::where('id_category',$type)->first();
         return view('page.product_category', compact('product_type','category'));        
+    }
+
+    public function search(Request $request){
+        $keywords = $request->keywords;
+        $search_product = Product::where('name_product','like','%'.$keywords.'%')->get();
+        return view('page.search', compact('search_product','keywords'));
+        
+    }
+    public function add_contact(Request $request)
+    {
+        $data = array();
+        $data['contact_name'] = $request->contact_name;
+        $data['contact_email'] = $request->contact_email;
+        $data['contact_phone'] = $request->contact_phone;
+        $data['contact_message'] = $request->contact_message;
+        Contact::create($data);
+        Session::put('message','Đã gửi thông tin liên hệ!');
+        return view('page.contact');
+
     }
 }

@@ -40,8 +40,8 @@
 
 @font-face {
 	font-family: Roboto;
-	src: url(public/frontend/font/Roboto-Regular.ttf);
-  }
+	src: url("../font/Roboto-Regular.ttf");
+}
 
 /*********************************
 2. Body and some general stuff
@@ -150,10 +150,10 @@ h6::selection
 {
 	
 } */
-.form-control
+/* .form-control
 {
 	color: #db5246;
-}
+} */
 section
 {
 	display: block;
@@ -436,6 +436,13 @@ section
 {
 	display: inline-block;
 	margin-left: 35px;
+	font-size: 16px;
+    font-weight: 300;
+    line-height: 56px;
+}
+.top_bar_user .top_bar_logout a:hover
+{
+	color: #007bff;
 }
 .user_icon
 {
@@ -751,7 +758,7 @@ select option
 }
 .wishlist
 {
-	margin-right: 50px;
+	margin-right: 0px;
 }
 .wishlist_icon img
 {
@@ -2153,8 +2160,8 @@ select option
 }
 .rating_r i::before
 {
-	font-family: 'FontAwesome';
-	content: "\f006";
+	font-family: 'Font Awesome 5 Free';
+	content: "\f005";
 	font-style: normal;
 	font-size: 19px;
 	margin-right: 4px;
@@ -2560,11 +2567,11 @@ select option
 {
 	margin: 0 15px;
 }
-.bestsellers_image
+/* .bestsellers_image
 {
 	width: 115px;
 	height: 115px;
-}
+} */
 .bestsellers_image img
 {
 	max-width: 100%;
@@ -2572,7 +2579,7 @@ select option
 }
 .bestsellers_content
 {
-	padding-left: 25px;
+	padding-left: 15px;
 }
 .bestsellers_category a
 {
@@ -2591,6 +2598,7 @@ select option
 .bestsellers_name
 {
 	margin-top: 2px;
+	height: 48px;
 }
 .bestsellers_name a
 {
@@ -2748,19 +2756,20 @@ select option
 .adverts
 {
 	width: 100%;
-	padding-top: 80px;
-	padding-bottom: 80px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 .advert
 {
 	width: 100%;
-	height: 180px;
+	height: 410px;
 	border: solid 1px #e8e8e8;
 	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 }
 .advert_content
 {
-	padding-left: 30px;
+	padding: 10px 20px;
+	
 }
 .advert_subtitle
 {
@@ -2795,7 +2804,7 @@ select option
 }
 .advert_image
 {
-	width: 178px;
+	width: 100%;
 	height: 100%;
 }
 .advert_image img
@@ -3322,12 +3331,10 @@ select option
 .brands
 {
 	width: 100%;
-	padding-top: 40px;
-	padding-bottom: 40px;
 }
 .brands_slider_container
 {
-	height: 110px;
+	height: 80px;
 	border: solid 1px #e8e8e8;
 	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
 	padding-left: 97px;
@@ -3343,7 +3350,7 @@ select option
 }
 .brands_item img
 {
-	max-width: 100%;
+	max-width: 80%;
 }
 .brands_nav
 {
@@ -3535,10 +3542,10 @@ select option
 .footer .logo
 {
 	top: auto;
-	-webkit-transform: transform: none;
+	/* -webkit-transform: transform: none;
     -moz-transform: transform: none;
     -ms-transform: transform: none;
-    -o-transform: transform: none;
+    -o-transform: transform: none; */
     transform: none;
 }
 .footer .logo a
@@ -3665,3 +3672,7 @@ select option
 {
 	margin-right: 0px;
 }
+
+/* Khác */
+.lh-condensed { line-height: 1.25; }
+#more  {display:  none;}

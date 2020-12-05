@@ -10,12 +10,12 @@
             <!-- Images -->
             <div class="col-lg-2 order-lg-1 order-2">
                 <ul class="image_list">
-                    <li data-image="images/single_4.jpg"><img
+                    <li data-image="{{asset('public/uploads/product/' . $detail->image_product)}}"><img
                             src="{{asset('public/uploads/product/' . $detail->image_product)}}" alt=""></li>
-                    <li data-image="images/single_2.jpg"><img
+                    <!-- <li data-image="{{asset('public/uploads/product/' . $detail->image_product)}}"><img
                             src="{{asset('public/uploads/product/' . $detail->image_product)}}" alt=""></li>
-                    <li data-image="images/single_3.jpg"><img
-                            src="{{asset('public/uploads/product/' . $detail->image_product)}}" alt=""></li>
+                    <li data-image="{{asset('public/uploads/product/' . $detail->image_product)}}"><img
+                            src="{{asset('public/uploads/product/' . $detail->image_product)}}" alt=""></li> -->
                 </ul>
             </div>
 
@@ -33,7 +33,7 @@
                     <div class="product_name">{{$detail -> name_product}}</div>
                     <div class="rating_r rating_r_4 product_rating"></div>
                     <div class="product_text">
-                        <p>{{$detail->description_product}}</p>
+                        <!-- <p>{{$detail->description_product}}</p> -->
                     </div>
                     <div class="order_info d-flex flex-row">
                         <form action="{{URL::to('/save_cart')}}" method="post">
@@ -70,75 +70,97 @@
 
                             </div>
 
-                            <div class="product_price">{{number_format($detail->price_product, 0, ',', '.')}} VNĐ</div>
+                            <div class="product_price2">{{number_format($detail->price_product, 0, ',', '.')}} VNĐ</div>
                             <div class="button_container">
                                 <button type="submit" class="button cart_button">Mua Ngay</button>
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>
                             </div>
-
+                            
                         </form>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="row">
+        <div class="row" style="padding-top: 30px;">
             <div class="col-lg-12">
                 <section class="product_description_area">
                     <div class="container">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">MÔ TẢ</a>
+                                    aria-controls="home" aria-selected="false">Mô tả</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                                    aria-controls="contact" aria-selected="false">BÌNH LUẬN</a>
+                                <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                                    aria-controls="contact" aria-selected="true">Bình luận</a>
                             </li>
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <p style="font-size:20px; padding: 2px">
-                                    {{$detail->description_product}}
+                                <p style="font-size:16px; padding: 0px;text-align: justify;">
+                                    {!!$detail->description_product!!}
+                                    
                                 </p>
                             </div>
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="comment_list">
+                                            @if(count($comments)==0)
+                                            <div class="" style="font-size:16px;">
+                                                <i class="fas fa-comment-slash" style="color:#0e8ce4;"></i> Sản phẩm chưa có bình luận nào. Hãy là người đầu tiên bình luận về sản phẩm này.
+                                            </div>
+                                            @endif
+                                            @foreach($comments as $cmt)
                                             <div class="review_item">
                                                 <div class="media">
                                                     <div class="d-flex">
-                                                        <img src="img/product/single-product/review-1.png" alt="" />
+                                                        <img src="{{asset('public/uploads/user/' . $cmt->image)}}" alt="" width="30" /> 
                                                     </div>
                                                     <div class="media-body">
-                                                        <h4>Blake Ruiz</h4>
-                                                        <h5>12th Feb, 2017 at 05:56 pm</h5>
+                                                        <h4>{{$cmt->name}}</h4>
+                                                        <h5>{{date_format($cmt->updated_at, 'd-m-Y')}}</h5>
+                                                        
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                                                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                                    ullamco laboris nisi ut aliquip ex ea commodo
+                                                    {{$cmt->content}}
                                                 </p>
                                             </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="review_box">
-                                            <h3>Thêm bình luận</h3>
-                                            <form class="row contact_form" action="contact_process.php" method="post"
-                                                id="contactForm" novalidate="novalidate">
+                                            <h6><i class="fas fa-comment" style="color:#0e8ce4;"></i> Đăng bình luận của bạn</h6>
+                                            @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                            </div>
+                                            @endif
+                                            @if(session()->get('success'))
+                                                <div class="alert alert-success">
+                                                {{ session()->get('success') }}  
+                                                </div>
+                                            @endif
+                                            <form class="row contact_form" style="padding-top:0" action="{{URL::to('/add-comment/'.$detail->id_product)}}" method="post"
+                                                id="contactForm">
+                                                {{csrf_field()}}
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <textarea class="form-control" name="message" id="message"
-                                                            rows="1" placeholder="Nội dung bình luận"></textarea>
+                                                        <textarea class="form-control" name="content" id="content"
+                                                            rows="3" placeholder="Nội dung bình luận"></textarea>
                                                     </div>
+                                                    <input type="hidden" value="{{$detail->id_product}}" name="id_product">
                                                 </div>
                                                 <div class="col-md-12 text-right">
-                                                    <button type="submit" value="submit" class="btn btn-danger">
-                                                        Đăng bình luận
+                                                    <button type="submit" value="submit" class="btn btn-primary">
+                                                        Gửi
                                                     </button>
                                                 </div>
                                             </form>

@@ -1,50 +1,12 @@
 
 /*********************************
-4. Home
-*********************************/
-
-.home
-{
-	width: 100%;
-	height: 260px;
-	background: transparent;
-}
-.home_background
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center center;
-}
-.home_overlay
-{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: #cde4f1;
-	background: linear-gradient(#FFFFFF, #cde4f1);
-	opacity: 0.9;
-}
-.home_content
-{
-	width: 100%;
-	height: 100%;
-}
-
-/*********************************
 5. Single Product
 *********************************/
 
 .single_product
 {
-	padding-top: 110px;
-	padding-bottom: 140px;
+	padding-top: 60px;
+	padding-bottom: 30px;
 }
 .image_list li
 {
@@ -79,7 +41,7 @@
 }
 .image_list li img
 {
-	max-width: 100%;
+	max-width: 60%;
 }
 .image_selected
 {
@@ -332,13 +294,14 @@
 {
 	margin-left: auto;
 }
-.product_price
+.product_price2
 {
 	display: inline-block;
-	font-size: 24px;
-	font-weight: 500;
-	margin-top: 75px;
+	font-size: 26px;
+	font-weight: 600;
+	margin-top: 55px;
 	clear: left;
+	color: #0e8ce4;
 }
 .button_container
 {
@@ -550,4 +513,270 @@
 .viewed_item.is_new .item_new
 {
 	display: inline-block;
+}
+
+/* Comment và Description */
+.product_description_area
+{
+	border: solid 1px #e8e8e8;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	padding-top: 20px;
+}
+.product_description_area .nav.nav-tabs {
+    display: block;
+    border: none;
+    padding: 10px 0px;
+    font-family: "Roboto", sans-serif;
+}
+
+.product_description_area .nav.nav-tabs li {
+    display: inline-block;
+    margin-right: 7px
+}
+
+.product_description_area .nav.nav-tabs li:last-child {
+    margin-right: 0px
+}
+
+.product_description_area .nav.nav-tabs li a {
+    padding: 0px;
+    border: none;
+    line-height: 38px;
+    background: #fff;
+    border: 1px solid #0e8ce4;
+    border-radius: 5px;
+    padding: 3px 30px;
+    color: #0e8ce4;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+@media (max-width: 991px) {
+    .product_description_area .nav.nav-tabs li a {
+        padding: 0px 20px;
+        margin-bottom: 10px
+    }
+}
+
+.product_description_area .nav.nav-tabs li a.active {
+    background: #0e8ce4;
+    color: #fff;
+    border-color: #0e8ce4
+}
+
+.product_description_area .tab-content {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.product_description_area .tab-content .total_rate .box_total {
+    background: #f7f7f7;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 1px solid #ddd
+}
+
+.product_description_area .tab-content .total_rate .box_total h4 {
+    color: #2577fd;
+    font-size: 48px;
+    font-weight: bold
+}
+
+.product_description_area .tab-content .total_rate .box_total h5 {
+    color: #415094;
+    margin-bottom: 0px;
+    font-size: 24px
+}
+
+.product_description_area .tab-content .total_rate .box_total h6 {
+    color: #415094;
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #828bb2;
+    font-weight: normal
+}
+
+.product_description_area .tab-content .total_rate .rating_list {
+    margin-bottom: 30px
+}
+
+.product_description_area .tab-content .total_rate .rating_list h3 {
+    font-size: 18px;
+    color: #415094;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    margin-bottom: 10px
+}
+
+.product_description_area .tab-content .total_rate .rating_list .list li a {
+    font-size: 14px;
+    color: #828bb2
+}
+
+.product_description_area .tab-content .total_rate .rating_list .list li a i {
+    color: #fbd600
+}
+
+.product_description_area .tab-content .total_rate .rating_list .list li:nth-child a i:last-child {
+    color: #eeeeee
+}
+
+.product_description_area .tab-content .table {
+    margin-bottom: 0px
+}
+
+.product_description_area .tab-content .table tbody tr td {
+    padding-left: 65px;
+    padding-right: 65px;
+    padding-top: 14px;
+    padding-bottom: 14px
+}
+
+.product_description_area .tab-content .table tbody tr td h5 {
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: normal;
+    color: #828bb2;
+    margin-bottom: 0px;
+    white-space: nowrap
+}
+
+.product_description_area .tab-content .table tbody tr:first-child td {
+    border-top: 0px
+}
+
+.comment_list{
+	border: solid 1px #e8e8e8;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	padding: 10px;
+}
+.review_item {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #0e8ce4;
+}
+
+.review_item:last-child {
+    margin-bottom: 0px
+}
+
+.review_item p {
+    color: #828bb2
+}
+
+.review_item .media {
+    position: relative
+}
+
+.review_item .media .d-flex {
+    padding-right: 15px
+}
+
+.review_item .media .d-flex img
+{
+	vertical-align: middle;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.review_item .media .media-body {
+    vertical-align: middle;
+    align-self: center
+}
+
+.review_item .media .media-body h4 {
+    margin-bottom: 0px;
+    font-size: 14px;
+    color: #415094;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 8px
+}
+
+.review_item .media .media-body i {
+    color: #fbd600
+}
+
+.review_item .media .media-body h5 {
+    font-size: 13px;
+    font-weight: normal;
+    color: #828bb2
+}
+
+.review_item .media .media-body .reply_btn {
+    border: 1px solid #e0e0e0;
+    padding: 0px 28px;
+    display: inline-block;
+    line-height: 32px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    color: #415094;
+    position: absolute;
+    right: 0px;
+    top: 14px
+}
+
+.review_item .media .media-body .reply_btn:hover {
+    background: #2577fd;
+    border-color: #2577fd;
+    color: #fff
+}
+
+.review_item p {
+    padding-top: 0px;
+    margin-bottom: 0px
+}
+
+.review_item.reply {
+    padding-left: 28px
+}
+.review_box{
+	border: solid 1px #e8e8e8;
+	box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+	padding: 10px;
+}
+.review_box h4 {
+    /* font-size: 24px;
+    color: #415094;
+    margin-bottom: 20px; */
+    font-weight: 500
+}
+
+.review_box p {
+    margin-bottom: 0px;
+    display: inline-block;
+    font-weight: 500
+}
+
+.review_box .list {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px
+}
+
+.review_box .list li {
+    display: inline-block
+}
+
+.review_box .list li a {
+    display: inline-block;
+    color: #fbd600
+}
+
+.review_box .form-control {
+    
+    border-radius: 0
+}
+
+.review_box ::placeholder {
+    font-size: 14px
+}
+
+.review_box .btn_3 {
+    padding: 13px 39px
+}
+
+.review_box .contact_form {
+    margin-top: 15px
 }

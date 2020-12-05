@@ -1,46 +1,61 @@
 @extends('layouts.admin')
 @section('admin_content')
-<div class="form-group">
-            <div class="col-lg-12">
-            <h4>
-              <font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> Thêm Sản Phẩm </font></font>
-            </h4>
-            </div></br>
-            <form role="form" action="{{URL::to('/save_product')}}" method="post" class="form-horizontal style-form" enctype="multipart/form-data">
-              {{ csrf_field() }}
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Tên sản phẩm</label><br>
-                <input type="text" name="product_name" class="form-control" id="formGroupExampleInput" placeholder="Tên sản phẩm" required>
-              </div></br>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Giá sản phẩm</label><br>
-                <input type="number" name="product_price" class="form-control" id="formGroupExampleInput" placeholder="Giá sản phẩm" required>
-              </div></br>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Mô tả sản phẩm</label><br>
-                <div class="col-lg-10">
-                    <textarea tyle="text" rows="10"  placeholder="Mô tả sản phẩm" id="validationCustom02" class="form-control" name="product_desc" required></textarea>
-                  </div>
-              </div></br>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br>
-                <input type="number" name="product_quantity" class="form-control" id="formGroupExampleInput" placeholder="Số lượng sản phẩm" required>
-              </div></br>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Hình Ảnh</label><br>
-                <input type="file" name="product_image" id="formGroupExampleInput" placeholder="Thêm tên danh mục" required>
-                </div></br>
-              <div class="form-group">
-                	<label for="exampleFormControlFile1">Danh mục sản phẩm</label>
-                	<div class="col-md-4">
-                		<select class="form-control" name="category">
-                      @foreach($category as $key => $cate)
-		                  <option value="{{$cate->id_category}}">{{$cate->name_category}}</option>
-                      @endforeach
-		                </select>
-                	</div>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action active">Thêm Sản Phẩm</li>
+    <li class="list-group-item" aria-disabled="true">
+        <div class="form-group">
+            <form role="form" action="{{URL::to('/save_product')}}" method="post" class="form-horizontal style-form"
+                enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Tên sản phẩm</label><br>
+                    <input type="text" name="product_name" class="form-control" id="formGroupExampleInput"
+                        placeholder="Tên sản phẩm" required>
                 </div>
-              <button type="submit" class="btn btn-primary">Thêm</button>
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Giá sản phẩm</label><br>
+                    <input type="number" name="product_price" class="form-control" id="formGroupExampleInput"
+                        placeholder="Giá sản phẩm" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Giảm giá (tính theo %)</label><br>
+                    <input type="number" name="promotion_price" class="form-control" id="formGroupExampleInput"
+                        value="0" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Mô tả sản phẩm</label><br>
+
+                    <textarea tyle="text" rows="10" placeholder="Mô tả sản phẩm" id="ckeditor1" class="form-control"
+                        name="product_desc" required></textarea>
+
+                </div>
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Số lượng sản phẩm</label><br>
+                    <input type="number" name="product_quantity" class="form-control" id="formGroupExampleInput"
+                        placeholder="Số lượng sản phẩm" required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Hình Ảnh</label><br>
+                    <input type="file" class="form-control" style="height:auto" name="product_image" id="product_image" placeholder="Thêm tên danh mục"
+                        required>
+                </div>
+                <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Danh mục sản phẩm</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="category">
+                            @foreach($category as $key => $cate)
+                            <option value="{{$cate->id_category}}">{{$cate->name_category}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group mb-4">
+                <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
+                </div>
+                
             </form>
-</div>
+        </div>
+    </li>
+</ul>
+
 @endsection

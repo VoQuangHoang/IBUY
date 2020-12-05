@@ -1,22 +1,23 @@
 @extends('layouts.admin')
 @section('admin_content')
 <div class="list-group">
+    
     <?php
 	$message = Session::get('message');
 	if ($message){
-	echo $message;
+	echo "<div class='"."alert"." alert-success'".">" . $message . "</div>";
 	Session::put('message',null);
 	}
 	?>
-    <button type="button" class="list-group-item list-group-item-action active">
-        Danh Sách Danh Mục
-    </button>
-    <table class="table table-bordered">
+    <div class="list-group-item list-group-item-action active">
+        Danh Sách Thương Hiệu
+    </div>
+    <table class="table table-bordered" style="background-color: white;">
         <thead style="text-align:center;">
             <tr>
-                <th scope="col">Tên Danh Mục</th>
+                <th scope="col">Tên Thương Hiệu</th>
                 <th scope="col">Hình Ảnh</th>
-                <th scope="col">Trạng Thái</th>
+                <th scope="col">Chức Năng</th>
             </tr>
         </thead>
         <tbody style="text-align:center;">
@@ -37,6 +38,8 @@
             @endforeach
         </tbody>
     </table>
-    {{ $all_category->links() }}
 </div>
+    <div class="row justify-content-center" style="width:100%;  margin:0">
+    {{ $all_category->links() }}
+    </div>
 @endsection

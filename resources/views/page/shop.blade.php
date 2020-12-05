@@ -4,8 +4,8 @@
 <!-- Home -->
 
 <div class="home">
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="public/frontend/images/shop_background.jpg"></div>
-		<div class="home_overlay"></div>
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{asset('public/frontend/images/shop_background2.jpg')}}"></div>
+		<!-- <div class="home_overlay"></div> -->
 		<div class="home_content d-flex flex-column align-items-center justify-content-center">
 			<h2 class="home_title">Tất cả sản phẩm</h2>
 		</div>
@@ -71,7 +71,7 @@
 
 					<div class="shop_content">
 						<div class="shop_bar clearfix">
-							<div class="shop_product_count"><span>186</span> sản phẩm</div>
+							<div class="shop_product_count">có <span>{{count($productss)}}</span> sản phẩm</div>
 							<!-- <div class="shop_sorting">
 								<span>Sort by:</span>
 								<ul>
@@ -91,13 +91,14 @@
 							<div class="product_grid_border"></div>
 
                             <!-- Product Item -->
-                            @foreach($products as $product)
+							@foreach($products as $product)
+							<a href="{{URL::to('/product_detail/'.$product->id_product)}}">
 							<div class="product_item">
 								<div class="product_border"></div>
 								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt="" width="80"></div>
 								<div class="product_content">
-									<div class="product_price">{{number_format($product->price_product, 0, ',', '.')}} VNĐ</div>
-									<div class="product_name"><div><a href="{{URL::to('/product_detail/'.$product->id_product)}}" tabindex="0">{{$product->name_product}}</a></div></div>
+									<div class="product_price"><a>{{number_format($product->price_product, 0, ',', '.')}} VNĐ</a></div>
+									<div class="product_names"><div><a href="{{URL::to('/product_detail/'.$product->id_product)}}">{{$product->name_product}}</a></div></div>
 								</div>
 								<!-- <div class="product_fav"><i class="fas fa-heart"></i></div> -->
 								<ul class="product_marks">
@@ -105,6 +106,7 @@
 									<li class="product_mark product_new">new</li>
 								</ul>
 							</div>
+							</a>
                             @endforeach
 
 							<!-- Product Item -->

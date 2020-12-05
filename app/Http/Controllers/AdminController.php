@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Redirect;
 use Session;
 use App\user;
 use App\Models\Roles;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\Comment;
+use App\Models\Order;
+use App\Models\Contact;
+
 
 class AdminController extends Controller
 {
@@ -16,7 +22,10 @@ class AdminController extends Controller
         $this->middleware(['auth','role:admin']);
     }
     public function showImportantInfo(){
-    	return view('admin.home_admin');
+        $user = User::All(); $product = Product::All();
+        $category = Category::All(); $comment = Comment::All();
+        $order = Order::All(); $contact = Contact::All();
+    	return view('admin.home_admin', compact('user', 'product', 'category', 'comment', 'order', 'contact'));
     }
     public function all_admin(){
     	$all_admin = User::orderBy('id','desc')->paginate(3);

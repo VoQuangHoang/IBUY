@@ -8,14 +8,15 @@
 	Session::put('message',null);
 	}
 	?>
-  <button type="button" class="list-group-item list-group-item-action active">
+  <div class="list-group-item list-group-item-action active">
     Danh Sách Danh Mục
-  </button>
+  </div>
   <table class="table table-bordered">
   <thead style="text-align:center">
     <tr>
       <th scope="col">Tên Sản Phẩm</th>
       <th scope="col">Giá</th>
+      <th scope="col">Giảm giá (theo %)</th>
       <th scope="col">Mô Tả</th>
       <th scope="col">Số Lượng</th>
       <th scope="col" >Hình Ảnh</th>
@@ -28,7 +29,8 @@
     <tr>
       <td>{{$pro->name_product}}</td>
       <td>{{$pro->price_product}}</td>
-      <td>{{$pro->description_product}}</td>
+      <td>{{$pro->promotion_price}}%</td>
+      <td>{{ substr(strip_tags($pro->description_product), 0, 300) }}{{ strlen(strip_tags($pro->description_product)) > 300 ? '...' : '' }}</td>
       <td>{{$pro->quantity_product}}</td>
       <td>
         <img src="public/uploads/product/{{$pro->image_product}}" width="60px">
@@ -42,6 +44,8 @@
     @endforeach
   </tbody>
 </table>
-{{ $all_product->links() }}
+<div class="row justify-content-center" style="width:100%;  margin:0">
+    {{ $all_product->links() }}
+    </div>
 </div>
 @endsection
