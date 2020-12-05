@@ -61,6 +61,7 @@ class RegisterController extends Controller
             'name.required' => 'Vui lòng nhập tên',
             'name.regex' => 'Vui lòng nhập ký tự',
             'name.min' => 'Tên phải có ít nhất 8 ký tự',
+            'email.required' => 'Vui lòng nhập email',
         ]);
     }
 
