@@ -18,7 +18,7 @@ class CreateOrderTable extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->integer('shipping_id')->unsigned();
             $table->integer('payment_id')->unsigned();
-            $table->float('order_total');
+            $table->string('order_total', 50);
             $table->string('order_status');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('shipping_id')->references('shipping_id')->on('shipping');

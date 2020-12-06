@@ -72,4 +72,36 @@ class AdminController extends Controller
         ->delete();
         return Redirect::to('all_admin');
    	}
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'regex:/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/i', 'min:8'],
+            'gender' => ['required', 'string', 'max:5'],
+            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required','min:10','numeric'],
+            'address' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],[
+            'name.required' => 'Vui lòng nhập tên',
+            'name.regex' => 'Vui lòng nhập ký tự',
+            'name.min' => 'Tên phải có ít nhất 8 ký tự',
+            //email
+            'email.required' => 'Vui lòng nhập email',
+            'email.unique' => 'Email này đã được đăng ký',
+            'email.email' => 'Vui lòng nhập đúng email',
+            //phone
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.numeric' => 'Số điện thoại phải là số',
+            'phone.min' => 'Số điện thoại có ít nhất 8 ký tự',
+            //address
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            //password
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu có ít nhất 8 ký tự',
+            'password.confirmed' => 'Mật khẩu không trùng khớp',
+            //image
+            'image.required' => 'Vui lòng up hình',
+        ]);
+    }
 }

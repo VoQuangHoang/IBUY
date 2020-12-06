@@ -29,7 +29,8 @@ Route::get('/all_admin','AdminController@all_admin');
 Route::get('/delete_admin/{id}','AdminController@delete_admin');
 Route::get('/edit_admin/{id}','AdminController@edit_admin');
 Route::post('/update_admin/{id}','AdminController@update_admin');
-
+Route::post('reset-password', 'ResetPasswordController@sendMail');
+Route::put('reset-password/{token}', 'ResetPasswordController@reset');
 //Category
 Route::get('add_category','CategoryController@category');
 Route::post('save_category','CategoryController@save_category');

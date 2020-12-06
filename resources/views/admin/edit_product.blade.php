@@ -46,10 +46,14 @@
                     <div class="form-group mb-4">
                         <label class="control-label col-md-3">Danh mục sản phẩm</label>
                         <div class="col-md-2">
-                            <select class="form-control" name="category" value="category">
-                                @foreach($category as $key => $cate)
-                                <option value="{{$cate->id_category}}">{{$cate->name_category}} </option>
-                                @endforeach
+                            <select class="form-control" name="category" value="{{$edit->id_category}}">
+                                  @foreach($category as $key => $cate)
+                                  @if($cate->id_category==$edit->id_category)
+                                      <option selected value="{{$cate->id_category}}">{{$cate->name_category}}</option>
+                                  @else
+                                  <option value="{{$cate->id_category}}">{{$cate->name_category}}</option>
+                                  @endif
+                                  @endforeach
                             </select>
                         </div>
                     </div>
