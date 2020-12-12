@@ -11,7 +11,7 @@
                 {{ csrf_field() }}
                 <div class="form-group mb-4">
                     <label for="exampleFormControlFile1">Tên Danh Mục</label><br>
-                    <input type="text" name="payment_menthod" value="{{$pay->payment_menthod}}" class="form-control"
+                    <input type="text" name="payment_method" value="{{$pay->payment_method}}" class="form-control"
                         id="formGroupExampleInput" placeholder="" required>
                 </div>
                 <div class="form-group mb-4">

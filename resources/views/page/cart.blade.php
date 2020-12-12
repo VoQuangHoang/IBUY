@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('maincontent')
+<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{asset('public/frontend/images/shop_background2.jpg')}}"></div>
+		<!-- <div class="home_overlay"></div> -->
+		<div class="home_content d-flex flex-column align-items-center justify-content-center">
+			<h2 class="home_title">GIỎ HÀNG</h2>
+		</div>
+	</div>
 <!-- Cart -->
 
 <div class="cart_section">
@@ -14,7 +21,7 @@
 								// printf(count($content));
 								// echo '<pre>';
                             ?>
-                    <div class="cart_title">Giỏ hàng</div>
+                    <div class="cart_title">Chi tiết giỏ hàng</div>
 
                     <?php	
 						// if(count($content)==0){
@@ -24,7 +31,7 @@
 
                     @if(count($content)==0)
                     <br>
-                    <div class="h6"><i class="fas fa-exclamation-circle" style="color:red;"></i> Bạn chưa có sản phẩm
+                    <div class="h6 text-center"><i class="fas fa-exclamation-circle" style="color:red;"></i> Bạn chưa có sản phẩm
                         nào trong giỏ hàng. Hãy thêm một sản phẩm vào giỏ</div>
                     @else
                     <div class="cart_items">

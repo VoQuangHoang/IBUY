@@ -75,10 +75,10 @@
 }
 .product_category
 {
-	font-size: 12px;
+	font-size: 20px;
 	color: rgba(0,0,0,0.5);
 }
-.product_name
+.product_name2
 {
 	font-size: 30px;
 	font-weight: 500;
@@ -301,7 +301,8 @@
 	font-weight: 600;
 	margin-top: 55px;
 	clear: left;
-	color: #0e8ce4;
+	/* color: #0e8ce4; */
+	color: #df3b3b;
 }
 .button_container
 {
@@ -779,4 +780,33 @@
 
 .review_box .contact_form {
     margin-top: 15px
+}
+
+/* .bestsellers_price2
+{
+	
+} */
+.bestsellers_item.discount .bestsellers_price2
+{
+	color: #df3b3b;
+}
+.bestsellers_price2 span
+{
+	position: relative;
+	font-size: 18px;
+	font-weight: 400;
+	color: rgba(0,0,0,0.6);
+	margin-left: 9px;
+}
+.bestsellers_price2 span::after
+{
+	display: block;
+	position: absolute;
+	left: -2px;
+	top: 9px;
+	width: calc(100% + 4px);
+	height: 1px;
+	background: #8d8d8d;
+	z-index: 1;
+	content: '';
 }

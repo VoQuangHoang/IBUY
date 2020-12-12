@@ -36,7 +36,6 @@
 1. Fonts
 ***********/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900|Rubik:300,400,500,700,900');
 
 @font-face {
 	font-family: Roboto;
@@ -1217,7 +1216,7 @@ select option
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 98.9%;
+	width: 1110px;
 	height: 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1276,7 +1275,9 @@ select option
 }
 .banner_button a
 {
-	color: #043458;
+	/* color: #043458; */
+	padding-left: 15px;
+    padding-right: 15px;
 }
 .banner_product_image
 {

@@ -8,12 +8,12 @@
             {{ csrf_field() }}
             <div class="form-group mb-4">
                 <label for="exampleFormControlFile1">Tên phương thức</label><br>
-                <input type="text" name="payment_menthod" class="form-control" id="" placeholder="Tên phương thức"
+                <input type="text" name="payment_method" class="form-control" id="" placeholder="Tên phương thức thanh toán"
                     required>
             </div>
             <div class="form-group mb-4">
                 <label for="exampleFormControlFile1">Trạng thái</label><br>
-                <input type="text" name="payment_status" class="form-control" id="" placeholder="" value="Đang chờ xử lý" required>
+                <input type="text" name="payment_status" class="form-control" id="" placeholder="" value="0" required>
             </div>
             
             <hr class="mb-4">

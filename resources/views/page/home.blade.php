@@ -4,12 +4,12 @@
 
         <div class="banner">
 			<div class="container">
-				<div class="row">
+				
             <div class="banner_background" style="background-image:url(public/frontend/images/apple-iphone-12-banner.jpg)"></div>
             <div class="container fill_height">
                 <div class="row fill_height">
                     <!-- <div class="banner_product_image"><img src="public/frontend/images/banner_product.png" alt=""></div> -->
-                    <div class="col-lg-5 offset-lg-7 fill_height" style="text-align: end;">
+                    <div class="col-lg-12 fill_height" style="text-align: end; padding-right:40px;">
                         <div class="banner_content">
                             <h2 class="banner_text">Apple Iphone 12 <br> Đã có hàng</h2>
                             <div class="banner_price">
@@ -17,47 +17,47 @@
                                 Chỉ từ 21.990.000đ
                             </div>
                             <div class="banner_product_name">Apple Iphone 12 Series</div>
-                            <div class="btn btn-light btn-lg banner_button"><a href="#">Shop Now</a></div>
+                            <div class="button banner_button" style="margin-bottom:20px"><a href="#">Shop Now</a></div>
                         </div>
                     </div>
                 </div>
 			</div>
-			</div>
+			
 			</div>
         </div>
 
         <!-- Ads banner -->
-        <div class="ads">
+        <div class="ads" style="width:100%">
             <div class="container">
                 <div class="row" style="padding: 10px 0px;">
-                    <div class="col-md-8" style="padding: 0;">
+                    <div class="col-md-8" style="padding-right:0">
                         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"
-                            style="width: 100%;  margin-left: 15px;">
+                            style="width: 100%;">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <img src="{{asset('public/frontend/images/banner3.png')}}" class=""
-                                        alt="..." style="width:99%">
+                                        alt="..." style="max-width:99%">
                                 </div>
                                 <div class="carousel-item">
                                     <img src="{{asset('public/frontend/images/banner1.png')}}"
-                                        class="" alt="..." style="width:99%">
+                                        class="img-fluid" alt="Responsive image" style="max-width:99%">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="{{asset('public/frontend/images/banner2.png')}}" class=""
-                                        alt="..." style="width:99%">
+                                    <img src="{{asset('public/frontend/images/banner2.png')}}" class="img-fluid"
+                                        alt="Responsive image" style="max-width:99%">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- col -->
-                    <div class="col-md-4" style="padding: 0;margin-left: 0px;">
-                        <div class="quangcao" style="margin-left: 15px;">
+                    <div class="col-md-4" style="padding-left: 0;">
+                        <div class="quangcao">
                             <div class="anh1">
                                 <img src="{{asset('public/frontend/images/banner4.png')}}" alt=""
-                                    style="padding-bottom: 10px; width:100%;">
+                                    style="padding-bottom: 7px; max-width:365px; height: auto">
                             </div>
                             <div class="anh2">
-                                <img src="{{asset('public/frontend/images/banner5.png')}}" alt="" style="width:100%">
+                                <img src="{{asset('public/frontend/images/banner5.png')}}" alt="" style="max-width:365px;height: auto">
                             </div>
 
 
@@ -210,7 +210,7 @@
                                         </div>
                                         <div class="bestsellers_fav"><i class="fas fa-heart"></i></div>
                                         <ul class="bestsellers_marks">
-                                            <li class="bestsellers_mark bestsellers_discount">{{$product->promotion_price}}%</li>
+                                            <li class="bestsellers_mark bestsellers_discount">-{{$product->promotion_price}}%</li>
                                             <li class="bestsellers_mark bestsellers_new">new</li>
                                         </ul>
                                     </div>

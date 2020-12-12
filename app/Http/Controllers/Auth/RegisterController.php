@@ -50,9 +50,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'regex:/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/i', 'min:8'],
-            'gender' => ['required', 'string', 'max:5'],
-            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+            'name' => ['required', 'regex:/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâ
+            ãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖ
+            ỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/i', 'min:8'],
+            'gender' => ['required', 'string', 'max:10'],
+            'image' => ['required','image','mimes:jpeg,png,jpg,gif,svg'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required','min:11','numeric'],
             'address' => ['required', 'string', 'max:255'],
@@ -62,6 +64,16 @@ class RegisterController extends Controller
             'name.regex' => 'Vui lòng nhập ký tự',
             'name.min' => 'Tên phải có ít nhất 8 ký tự',
             'email.required' => 'Vui lòng nhập email',
+            'email.unique' => 'Email này đã được đăng ký',
+            'email.email' => 'Vui lòng nhập đúng email',
+            'phone.required' => 'Vui lòng nhập số điện thoại',
+            'phone.numeric' => 'Số điện thoại phải là số',
+            'phone.min' => 'Số điện thoại có ít nhất 8 ký tự',
+            'address.required' => 'Vui lòng nhập địa chỉ',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'password.min' => 'Mật khẩu có ít nhất 8 ký tự',
+            'password.confirmed' => 'Mật khẩu không trùng khớp',
+            'image.required' => 'Vui lòng up hình',
         ]);
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    public $timestamps = true; //set time to false
+    public $timestamps = true;
     protected $fillable = [
     	'name_category','image_category'
     ];

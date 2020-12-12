@@ -11,6 +11,7 @@
     <div class="list-group-item list-group-item-action active text-center">
         THÔNG TIN NGƯỜI MUA
     </div>
+    <div class="table-responsive">
     <table class="table table-bordered">
         <thead style="text-align:center;">
             <tr>
@@ -33,7 +34,7 @@
             
         </tbody>
     </table>
-    
+    </div>
 </div>
 <br>
 
@@ -41,6 +42,7 @@
     <div class="list-group-item list-group-item-action active text-center">
         THÔNG TIN VẬN CHUYỂN
     </div>
+    <div class="table-responsive">
     <table class="table table-bordered">
         <thead style="text-align:center;">
             <tr>
@@ -62,7 +64,7 @@
             
         </tbody>
     </table>
-    
+    </div>
 </div>
 <br>
 
@@ -70,6 +72,7 @@
     <div class="list-group-item list-group-item-action active text-center">
         LIỆT KÊ CHI TIẾT ĐƠN HÀNG
     </div>
+    <div class="table-responsive">
     <table class="table table-bordered">
         <thead style="text-align:center;">
             <tr>
@@ -91,6 +94,6 @@
             @endforeach
         </tbody>
     </table>
-    
+    </div>
 </div>
 @endsection

@@ -7,7 +7,7 @@
             <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Tạo một tài khoản!</h1>
             </div>
-            @if ($errors->any())
+            <!-- @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -15,7 +15,7 @@
                     @endforeach
                 </ul>
             </div>
-            @endif
+            @endif -->
             <form class="user" action="{{ route('register') }}" method="post" class="form-horizontal style-form"
                 enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -79,18 +79,21 @@
                     <label for="exampleFormControlFile1">Hình Ảnh</label><br>
                     <input type="file" class="form-control" style="height:auto" name="image" id="formGroupExampleInput"
                         placeholder="Thêm tên danh mục">
+                        @error('image')
+                                            <div class="badge badge-danger" style="width:100%">{{ $message }}</div>
+                                            @enderror
                 </div>
-                <button class="btn btn-primary btn-user btn-block mb-4" type="submit"> Đăng
-                    Kí</button>
+                <button class="btn btn-primary btn-block mb-4" type="submit"> Đăng
+                    Ký</button>
             </form>
             <br>
             <div class="text-center">
-                <div class="small text-gray-900 mb-4">Bạn đã có tài khoản! Quay lại trang <a
-                        href="{{URL::to('login')}}">ĐĂNG NHẬP</a></div>
+                <div class=" text-gray-900 mb-4">Bạn đã có tài khoản! Quay lại trang <a
+                        href="{{URL::to('login')}}">Đăng Nhập</a></div>
             </div>
             <div class="text-center">
-                <div class="small text-gray-900 mb-4"><a href="{{URL::to('')}}"><i
-                            class="fas fa-chevron-circle-right"></i> QUAY LẠI TRANG CHỦ</a>
+                <div class=" text-gray-900 mb-4"><a href="{{URL::to('')}}"><i
+                            class="fas fa-chevron-circle-left"></i> Quay lại trang chủ</a>
                 </div>
             </div>
         </div>

@@ -39,6 +39,7 @@
 }
 .home_title{
 	color: white;
+	text-transform: uppercase;
 }
 /*********************************
 5. Shop
@@ -453,6 +454,7 @@
 	-ms-transform: translateX(-37px);
 	-o-transform: translateX(-37px);
 	transform: translateX(-37px);
+	margin-left: 37px;
 }
 .sidebar_title
 {

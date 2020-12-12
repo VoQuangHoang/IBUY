@@ -30,7 +30,7 @@
             <div class="col-lg-5 order-3">
                 <div class="product_description">
                     <div class="product_category">Điện thoại</div>
-                    <div class="product_name">{{$detail -> name_product}}</div>
+                    <div class="product_name2">{{$detail -> name_product}}</div>
                     <div class="rating_r rating_r_4 product_rating"></div>
                     <div class="product_text">
                         <!-- <p>{{$detail->description_product}}</p> -->
@@ -51,6 +51,7 @@
                                                 class="fas fa-chevron-down"></i></div>
                                     </div>
                                     <input type="hidden" name="productid_hidden" value="{{$detail -> id_product}}">
+                                    <input type="hidden" name="price_hidden" value="{{$detail->price_product*(1-($detail->promotion_price/100))}}">
                                 </div>
 
                                 <!-- Product Color -->
@@ -69,8 +70,11 @@
 									</ul> -->
 
                             </div>
-
-                            <div class="product_price2">{{number_format($detail->price_product, 0, ',', '.')}} VNĐ</div>
+                            @if($detail->promotion_price == 0)
+                            <div class="product_price2">{{number_format($detail->price_product, 0, ',', '.').'₫'}}</div>
+                            @else
+                            <div class="product_price2 bestsellers_price2 discount">{{number_format(($detail->price_product*(1-($detail->promotion_price/100))), 0, ',', '.').'₫'}}<span>{{number_format($detail->price_product, 0, ',', '.').'₫'}}</span></div>
+                            @endif
                             <div class="button_container">
                                 <button type="submit" class="button cart_button">Mua Ngay</button>
                                 <div class="product_fav"><i class="fas fa-heart"></i></div>

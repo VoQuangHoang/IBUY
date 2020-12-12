@@ -13,6 +13,16 @@
                         placeholder="Tên sản phẩm" required>
                 </div>
                 <div class="form-group mb-4">
+                    <label for="exampleFormControlFile1">Danh mục sản phẩm</label>
+                    <div class="col-md-4">
+                        <select class="form-control" name="category">
+                            @foreach($category as $key => $cate)
+                            <option value="{{$cate->id_category}}">{{$cate->name_category}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group mb-4">
                     <label for="exampleFormControlFile1">Giá sản phẩm</label><br>
                     <input type="number" name="product_price" class="form-control" id="formGroupExampleInput"
                         placeholder="Giá sản phẩm" required>
@@ -39,16 +49,7 @@
                     <input type="file" class="form-control" style="height:auto" name="product_image" id="product_image" placeholder="Thêm tên danh mục"
                         required>
                 </div>
-                <div class="form-group mb-4">
-                    <label for="exampleFormControlFile1">Danh mục sản phẩm</label>
-                    <div class="col-md-4">
-                        <select class="form-control" name="category">
-                            @foreach($category as $key => $cate)
-                            <option value="{{$cate->id_category}}">{{$cate->name_category}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
+                
                 <div class="form-group mb-4">
                 <button type="submit" class="btn btn-primary">Thêm Sản Phẩm</button>
                 </div>

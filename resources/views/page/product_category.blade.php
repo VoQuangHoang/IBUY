@@ -36,7 +36,7 @@
 								<div class="product_border"></div>
 								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt="" width="80"></div>
 								<div class="product_content">
-									<div class="product_price">{{number_format($product->price_product, 0, ',', '.')}} VNĐ</div>
+									<div class="product_price">{{number_format($product->price_product, 0, ',', '.').'₫'}}</div>
 									<div class="product_name"><div><a href="{{URL::to('/product_detail/'.$product->id_product)}}" tabindex="0">{{$product->name_product}}</a></div></div>
 								</div>
 								<!-- <div class="product_fav"><i class="fas fa-heart"></i></div> -->

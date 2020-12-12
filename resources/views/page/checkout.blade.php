@@ -134,17 +134,18 @@
                                     <h4 class="mb-3 text-muted">Hình thức thanh toán</h4>
 
                                     <div class="d-block my-3">
+                                        @foreach ($payment as $pay)
                                         <div class="custom-control custom-radio">
-                                            <input id="credit" name="payment_id" type="radio"
-                                                class="custom-control-input" checked value="1" required>
-                                            <label class="custom-control-label" for="credit">Thanh toán khi nhận hàng
-                                                (Tiền mặt)</label>
+                                            <input id="{{$pay->payment_id}}" checked name="payment_id" type="radio"
+                                                class="custom-control-input" value="{{$pay->payment_id}}" required>
+                                            <label class="custom-control-label" for="{{$pay->payment_id}}">{{$pay->payment_method}}</label>
                                         </div>
-                                        <div class="custom-control custom-radio">
+                                        @endforeach
+                                        <!-- <div class="custom-control custom-radio">
                                             <input id="debit" name="payment_id" type="radio" value="2"
                                                 class="custom-control-input" required>
                                             <label class="custom-control-label" for="debit">ATM</label>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <hr class="mb-4">

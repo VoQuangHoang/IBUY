@@ -11,14 +11,15 @@
     <div class="list-group-item list-group-item-action active">
         Danh Sách Bình Luận
     </div>
+    <div class="table-responsive">
     <table class="table table-bordered">
         <thead style="text-align:center;">
             <tr>
                 <th scope="col">Tên sản phẩm</th>
                 <th scope="col">Lượt bình luận</th>
-                <th scope="col">Ngày bình luận mới</th>
-                <th scope="col">Ngày bình luận cũ</th>
-                <th scope="col"></th>
+                <th scope="col">Ngày bình luận gần nhất</th>
+                <th scope="col">Ngày bình luận cũ nhất</th>
+                <th scope="col">Xem bình luận</th>
                 <!-- <th scope="col">Xóa đơn</th> -->
             </tr>
         </thead>
@@ -27,8 +28,8 @@
             <tr>
                 <td style="vertical-align: middle;">{{$cmt->name_product}}</td>
                 <td style="vertical-align: middle;">{{$cmt->soluong}}</td>
-                <td style="vertical-align: middle;">{{$cmt->max}}</td>
-                <td style="vertical-align: middle;">{{$cmt->min}}</td>
+                <td style="vertical-align: middle;">{{date_format(new DateTime($cmt->max), 'd-m-Y')}}</td>
+                <td style="vertical-align: middle;">{{date_format(new DateTime($cmt->min), 'd-m-Y')}}</td>
 
                 <td style="vertical-align: middle;">
                     <a href="{{URL::to('/comment-by-product/'.$cmt->id_product)}}" class="btn btn-success btn-xs">
@@ -44,6 +45,7 @@
             @endforeach
         </tbody>
     </table>
+    </div>
 </div>
 <div class="row justify-content-center" style="width:100%;  margin:0">
     {{ $comment->links() }}

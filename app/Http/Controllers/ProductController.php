@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'role:admin']);//Hàng rào 
+        $this->middleware(['auth', 'role:admin']);//Check admin
     }
     public function product(){
      	$category = Category::orderby('id_category','desc')->get();
@@ -30,38 +30,30 @@ class ProductController extends Controller
     	if ($get_image) {
     		$get_name_image = $get_image->getClientOriginalName();
     		$name_image= current(explode('.', $get_name_image));
-    		$new_image= rand(0,99).'.'.$get_image->getClientOriginalExtension();
+    		$new_image= rand(0,999).'.'.$get_image->getClientOriginalExtension();
     		$get_image->move('public/uploads/product',$new_image);
     		$data['image_product']= $new_image;		
     	}
     	$data->save();
-    	Session::put('message','Thêm danh mục thành công');
+    	Session::put('message','Thêm sản phẩm thành công');
     	return Redirect::to('all_product');
  		// echo'<pre>';
  		// print_r($data);
  		// echo'</pre>';
    		}
    	public function all_product(){
-   		$all_product = Product::join('categories','categories.id_category','=','product.id_category')
-   		->orderby('product.id_product','desc')
-   		->paginate(4);
-   		$manager_product = view('admin.all_product')
-      ->with('all_product',$all_product);
-   		return view('layouts.admin')
-      ->with('admin.all_product',$manager_product);
+		$all_product = Product::join('categories','categories.id_category',
+		'=','product.id_category')
+   		->orderby('product.id_product','desc')->paginate(4);
+   		return view('admin.all_product', compact('all_product'));
    	}
    	public function edit_product($product_id){
    		$category = Category::orderby('id_category','desc')
     	->get();	
-    	$edit_product = Product::join('categories','categories.id_category','=','product.id_category')
-    	->orderby('id_product','desc')
-    	->where('id_product', $product_id)
-    	->get();
-    	$manager_product = view('admin.edit_product')
-    	->with('edit_product',$edit_product)
-    	->with('category',$category);
-    	return view('layouts.admin')
-    	->with('edit_product', $manager_product);
+		$edit_product = Product::join('categories','categories.id_category'
+		,'=','product.id_category')
+    	->orderby('id_product','desc')->where('id_product', $product_id)->get();
+    	return view('admin.edit_product', compact('category', 'edit_product'));
    	}
    	public function update_product(Request $request, $product_id){
    		$data = array();
@@ -75,22 +67,18 @@ class ProductController extends Controller
     	if ($get_image) {
     		$get_name_image = $get_image->getClientOriginalName();
     		$name_image= current(explode('.', $get_name_image));
-    		$new_image= rand(0,99).'.'.$get_image->getClientOriginalExtension();
+    		$new_image= rand(0,999).'.'.$get_image->getClientOriginalExtension();
     		$get_image->move('public/uploads/product',$new_image);
     		$data['image_product']= $new_image;		
     	}
-   		//echo'<pre>';
- 		// print_r($data);
- 		// echo'<pre>';
     	Product::where('id_product',$product_id)
     	->update($data);
-    	Session::put('message','Cập nhật thành công');
+    	Session::put('message','Cập nhật sản phẩm thành công');
     	return Redirect::to('all_product');
    	}
    	public function delete_product($product_id){
-   		Product::where('id_product',$product_id)
-        ->delete();
-        Session::put('message','Xóa Thành Công');
+   		Product::where('id_product',$product_id)->delete();
+        Session::put('message','Xóa sản phẩm thành công');
         return Redirect::to('all_product');
    	}
 }

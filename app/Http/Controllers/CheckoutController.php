@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Session;
 use Cart;
+use Session;
+use App\Models\Order;
 use App\Models\Comment;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Shipping;
-use App\Models\Order;
 use App\Models\Order_detail;
-use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 session_start();
@@ -19,13 +20,14 @@ session_start();
 class CheckoutController extends Controller
 {
     public function checkout(){
-        return view('page.checkout');
+        $payment = Payment::where('payment_status',1)->get();
+        return view('page.checkout', compact('payment'));
     }
 
     public function order_place(Request $request){
         //insert shipping
         $dataship = $request -> validate([
-            'shipping_note' => 'nullable'
+            'shipping_note' => 'nullable',
             ]);
         $dataship['shipping_name']= $request->shipping_name;
         $dataship['shipping_address']= $request->shipping_address;
@@ -44,6 +46,8 @@ class CheckoutController extends Controller
         $order_data['payment_id'] = $request->payment_id;
         $order_data['order_total'] = Cart::total();
         $order_data['order_status'] ='Đang chờ xử lý';
+        $order_data['created_at'] = Carbon::now('Asia/Ho_Chi_Minh');
+        $order_data['updated_at'] = Carbon::now('Asia/Ho_Chi_Minh');
         $order_id = Order::insertGetId($order_data);
         
         //insert order details

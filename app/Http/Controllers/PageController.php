@@ -18,13 +18,8 @@ class PageController extends Controller
         $category = Category::orderby('id_category','desc')->get();
         $product_detail = Product::join('categories','categories.id_category','=','product.id_category')
         -> where('product.id_product', $id_product)->get();
-        // $comments = Comment::where('id_product', $id_product)->get();
-        $comments = Comment::join('users', 'users.id', '=', 'comments.id_user')->where('id_product', $id_product)->select('comments.*','users.name','users.image')->get();
-        // echo'<pre>';
-         // print_r($comments);
-         
-         // echo'</pre>';
-
+        $comments = Comment::join('users', 'users.id', '=', 'comments.id_user')
+        ->where('id_product', $id_product)->select('comments.*','users.name','users.image')->get();
         return view('page.detailproduct', compact('category','product_detail','comments'));        
     }
     public function getShop()    
@@ -36,7 +31,8 @@ class PageController extends Controller
     }
 
     public function getProducbytype($type){
-        $product_type = Product::where('id_category',$type)->orderBy('id_product', 'desc')->paginate(10);
+        $product_type = Product::where('id_category',$type)
+        ->orderBy('id_product', 'desc')->paginate(10);
         $category = Category::where('id_category',$type)->first();
         return view('page.product_category', compact('product_type','category'));        
     }
@@ -45,18 +41,24 @@ class PageController extends Controller
         $keywords = $request->keywords;
         $search_product = Product::where('name_product','like','%'.$keywords.'%')->get();
         return view('page.search', compact('search_product','keywords'));
-        
     }
+    
     public function add_contact(Request $request)
     {
         $data = array();
         $data['contact_name'] = $request->contact_name;
         $data['contact_email'] = $request->contact_email;
         $data['contact_phone'] = $request->contact_phone;
+        $data['contact_tilte'] = $request->contact_tilte;
         $data['contact_message'] = $request->contact_message;
         Contact::create($data);
         Session::put('message','Đã gửi thông tin liên hệ!');
         return view('page.contact');
+
+    }
+    public function manager_contact(){
+        $contact = Contact::orderby('contact_id','desc')->paginate(5);
+        return view('admin.manager-contact', compact('contact'));
 
     }
 }

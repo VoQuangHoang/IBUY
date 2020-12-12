@@ -25,6 +25,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/shop_responsive.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/contact_styles.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/contact_responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/regular_styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('public/frontend/styles/regular_responsive.css')}}">
 
 </head>
 
@@ -148,8 +150,24 @@
                                 <div class="wishlist d-flex flex-row align-items-center justify-content-end">
                                     <div class="wishlist_icon"></div>
                                     <div class="wishlist_content">
-                                        <div class="wishlist_text"><a href="#"><i class="fas fa-user"
-                                                    style="font-size:24px; color: #0e8ce4"></i> Tài khoản</a></div>
+                                        <div class="wishlist_text">
+                                            @if(Auth::check())
+                                            <a class="nav-link dropdown-toggle" id="accounts" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fas fa-user" style="font-size:20px; color: #0e8ce4"></i>  Tài khoản
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="accounts">
+                                                <a class="dropdown-item" href="#">Thông tin tài khoản</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Đơn hàng</a>
+                                            </div>
+                                            @else
+                                            <a class="nav-link">
+                                                <i class="fas fa-user" style="font-size:20px; color: #0e8ce4"></i>  Tài khoản
+                                            </a>
+                                            @endif
+                                        </div>
                                         <!-- <div class="wishlist_count"></div> -->
                                     </div>
                                 </div>
@@ -164,7 +182,7 @@
                                         </div>
                                         <div class="cart_content">
                                             <div class="cart_text"><a href="{{URL::to('show_cart')}}"><i class="fas fa-shopping-cart"
-                                                        style="font-size:24px; color: #0e8ce4"></i> Giỏ hàng</a></div>
+                                                        style="font-size:20px; color: #0e8ce4"></i>  Giỏ hàng</a></div>
                                             <!-- <div class="cart_price"></div> -->
                                         </div>
                                     </div>
@@ -271,7 +289,6 @@
                                         <li><a href="{{URL::to('shop')}}">Sản phẩm<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="{{URL::to('about')}}">Giới thiệu<i class="fas fa-chevron-down"></i></a></li>
                                         <li><a href="{{URL::to('contact')}}">Liên hệ<i class="fas fa-chevron-down"></i></a></li>
-                                        <li><a href="{{URL::to('contact')}}">Thanh toán<i class="fas fa-chevron-down"></i></a></li>
                                     </ul>
                                 </div>
 
@@ -661,6 +678,7 @@
     <script src="{{asset('public/frontend/plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
     <script src="{{asset('public/frontend/plugins/parallax-js-master/parallax.min.js')}}"></script>
     <script src="{{asset('public/frontend/js/shop_custom.js')}}"></script>
+    <script src="{{asset('public/frontend/js/regular_custom.js')}}"></script>
     
 
     <script src="{{asset('public/frontend/js/form-validation.js')}}"></script>

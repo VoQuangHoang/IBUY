@@ -43,7 +43,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{URL::to('admin')}}">
                     <i class="fas fa-desktop"></i>
-                    <span>Trang Chủ</span></a>
+                    <span>Trang Chủ Admin</span></a>
             </li>
 
             <!-- Divider -->
@@ -64,7 +64,7 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Bao gồm</h6>
-                        <a class="collapse-item" href="{{('all_admin')}}">Danh sách tài khoản</a>
+                        <a class="collapse-item" href="{{URL::to('all_admin')}}">Danh sách tài khoản</a>
                     </div>
                 </div>
             </li>

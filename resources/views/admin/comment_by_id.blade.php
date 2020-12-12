@@ -14,22 +14,22 @@
 	}
 	?>
     <div class="list-group-item list-group-item-action active">
-        Chi Tiết Bình Luận
+        Chi Tiết Bình Luận / {{$name_pro->name_product}}
     </div>
     <table class="table table-bordered">
         <thead style="text-align:center;">
             <tr>
+                <th scope="col">Người bình luận</th>    
                 <th scope="col">Nội dung</th>
-                <th scope="col">Người bình luận</th>
                 <th scope="col">Ngày bình luận</th>
                 <th scope="col">Xóa</th>
             </tr>
         </thead>
         <tbody style="text-align:center;">
             @foreach($comment_by_product as $cmt)
-            <tr>
-                <td style="vertical-align: middle;">{{$cmt->content}}</td>
+            <tr>    
                 <td style="vertical-align: middle;">{{$cmt->name}}</td>
+                <td style="vertical-align: middle;">{{$cmt->content}}</td>
                 <td style="vertical-align: middle;">{{date_format($cmt->created_at, 'd-m-Y H:i')}}</td>
                 <td style="vertical-align: middle;">
                     <a href="{{URL::to('/delete-comment/'.$cmt->id_comment)}}" class="btn btn-danger btn-xs">

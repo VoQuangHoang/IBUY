@@ -92,12 +92,13 @@
 
                             <!-- Product Item -->
 							@foreach($products as $product)
-							<a href="{{URL::to('/product_detail/'.$product->id_product)}}">
+							
+							@if($product->promotion_price == 0)
 							<div class="product_item">
 								<div class="product_border"></div>
 								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt="" width="80"></div>
 								<div class="product_content">
-									<div class="product_price"><a>{{number_format($product->price_product, 0, ',', '.')}} VNĐ</a></div>
+									<div class="product_price"><a>{{number_format($product->price_product, 0, ',', '.').'₫'}}</a></div>
 									<div class="product_names"><div><a href="{{URL::to('/product_detail/'.$product->id_product)}}">{{$product->name_product}}</a></div></div>
 								</div>
 								<!-- <div class="product_fav"><i class="fas fa-heart"></i></div> -->
@@ -107,6 +108,23 @@
 								</ul>
 							</div>
 							</a>
+							@else
+							<!-- Product Item -->
+							<div class="product_item discount">
+								<div class="product_border"></div>
+								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="{{asset('public/uploads/product/' . $product->image_product)}}" alt="" width="80"></div>
+								<div class="product_content">
+									<div class="product_price">{{number_format(($product->price_product*(1-($product->promotion_price/100))), 0, ',', '.').'₫'}}<span>{{number_format($product->price_product, 0, ',', '.').'₫'}}</span></div>
+									<div class="product_name"><div><a href="{{URL::to('/product_detail/'.$product->id_product)}}">{{$product->name_product}}</a></div></div>
+								</div>
+								<!-- <div class="product_fav"><i class="fas fa-heart"></i></div> -->
+								<ul class="product_marks">
+									<li class="product_mark product_discount">-{{$product->promotion_price}}%</li>
+									<li class="product_mark product_new">new</li>
+								</ul>
+							</div>
+							@endif
+							
                             @endforeach
 
 							<!-- Product Item -->
@@ -124,20 +142,7 @@
 								</ul>
 							</div> -->
 
-							<!-- Product Item -->
-							<!-- <div class="product_item discount">
-								<div class="product_border"></div>
-								<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/featured_1.png" alt=""></div>
-								<div class="product_content">
-									<div class="product_price">$225<span>$300</span></div>
-									<div class="product_name"><div><a href="#" tabindex="0">Huawei MediaPad...</a></div></div>
-								</div>
-								<div class="product_fav"><i class="fas fa-heart"></i></div>
-								<ul class="product_marks">
-									<li class="product_mark product_discount">-25%</li>
-									<li class="product_mark product_new">new</li>
-								</ul>
-							</div> -->
+							
 
 						</div>
 

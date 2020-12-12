@@ -1,5 +1,12 @@
 @extends('layouts.master')
 @section('maincontent')
+<div class="home">
+		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="{{asset('public/frontend/images/shop_background2.jpg')}}"></div>
+		<!-- <div class="home_overlay"></div> -->
+		<div class="home_content d-flex flex-column align-items-center justify-content-center">
+			<h2 class="home_title">LIÊN HỆ VỚI CHÚNG TÔI</h2>
+		</div>
+	</div>
 <div class="contact_info">
     <div class="container">
         <div class="row">
@@ -54,24 +61,33 @@
 	Session::put('message',null);
 	}
 	?>
-                    <div class="contact_form_title">Liên hệ với iBuy</div>
+                    <div class="contact_form_title">
+                        <div class="card text-white bg-primary mb-3" >
+                            <div class="card-header">Liên hệ với iBuy</div>
+                        </div>
+                    </div>
 
                     <form action="{{URL::to('add-contact')}}" id="contact_form" method="POST">
                         {{ csrf_field() }}
                         <div
                             class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
                             <input type="text" id="contact_form_name" name="contact_name"
-                                class="contact_form_name input_field" placeholder="Nhập tên của bạn" required="required"
-                                data-error="Name is required.">
+                                class="contact_form_name input_field" placeholder="Họ và tên" required="required"
+                                data-error="Hãy nhập tên của bạn.">
                             <input type="text" id="contact_form_email" name="contact_email"
-                                class="contact_form_email input_field" placeholder="Nhập email của bản"
+                                class="contact_form_email input_field" placeholder="Email"
                                 required="required" data-error="Email is required.">
                             <input type="text" id="contact_form_phone" name="contact_phone"
-                                class="contact_form_phone input_field" placeholder="Nhập số của bạn" required>
+                                class="contact_form_phone input_field" placeholder="Số điện thoại" required>
+                        </div>
+                        <div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">
+                        <input type="text" id="contact_form_title" name="contact_tilte" style="width:100%"
+                                class="contact_form_tilte input_field" placeholder="Nhập tiêu đề" required="required"
+                                data-error="Hãy nhập tiêu đề.">
                         </div>
                         <div class="contact_form_text">
                             <textarea id="contact_form_message" class="text_field contact_form_message"
-                                name="contact_message" rows="4" placeholder="Nội dung lời nhắn" required="required"
+                                name="contact_message" rows="3" placeholder="Nội dung lời nhắn" required="required"
                                 data-error="Please, write us a message."></textarea>
                         </div>
                         <div class="contact_form_button">
