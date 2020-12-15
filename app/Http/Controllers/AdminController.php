@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -13,8 +11,6 @@ use App\Models\Product;
 use App\Models\Comment;
 use App\Models\Order;
 use App\Models\Contact;
-
-
 class AdminController extends Controller
 {
     public function __construct()
@@ -29,19 +25,21 @@ class AdminController extends Controller
     }
     public function all_admin(){
     	$all_admin = User::orderBy('id','desc')->paginate(3);
-    	$manager_admin = view('auth.all_admin')
-    	->with('all_admin', $all_admin);
-    	return view('layouts.admin')
-    	->with('all_admin', $manager_admin);
+        return view('auth.all_admin',compact('all_admin'));
+    	// $manager_admin = view('auth.all_admin')
+    	// ->with('all_admin', $all_admin);
+    	// return view('layouts.admin')
+    	// ->with('all_admin', $manager_admin);
     }
     public function edit_admin($admin_id){
         $roles = Roles::orderby('id','desc')->get();
         $edit_admin = User::where('id',$admin_id)->get();
-        $manager_admin = view('auth.edit_admin')
-        ->with('edit_admin', $edit_admin)
-        ->with('roles', $roles);
-        return view('layouts.admin')
-        ->with('edit_admin', $manager_admin);
+        return view('auth.edit_admin',compact('roles','edit_admin'));
+        // $manager_admin = view('auth.edit_admin')
+        // ->with('edit_admin', $edit_admin)
+        // ->with('roles', $roles);
+        // return view('layouts.admin')
+        // ->with('edit_admin', $manager_admin);
     }
     public function update_admin(Request $request, $admin_id){
         $data = array();
