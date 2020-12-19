@@ -124,7 +124,7 @@
                                                     </div>
                                                     <div class="media-body">
                                                         <h4>{{$cmt->name}}</h4>
-                                                        <h5>{{date_format($cmt->updated_at, 'd-m-Y')}}</h5>
+                                                        <h5>{{date_format($cmt->updated_at, 'd-m-Y H:i')}}</h5>
                                                         
                                                     </div>
                                                 </div>

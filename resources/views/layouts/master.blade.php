@@ -156,9 +156,7 @@
                                                 <i class="fas fa-user" style="font-size:20px; color: #0e8ce4"></i>  Tài khoản
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="accounts">
-                                                <a class="dropdown-item" href="#">Thông tin tài khoản</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Đổi mật khẩu</a>
+                                                <a class="dropdown-item" href="{{URL::to('info_user/'.Auth::user()->id)}}">Thông tin</a>
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item" href="#">Đơn hàng</a>
                                             </div>
@@ -391,11 +389,11 @@
 
                                 <div class="menu_contact">
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="public/frontend/images/phone_white.png" alt=""></div>
+                                        <div class="menu_contact_icon"><img src="{{asset('public/frontend/images/phone_white.png')}}" alt=""></div>
                                         +38 068 005 3570
                                     </div>
                                     <div class="menu_contact_item">
-                                        <div class="menu_contact_icon"><img src="public/frontend/images/mail_white.png" alt=""></div><a
+                                        <div class="menu_contact_icon"><img src="{{asset('public/frontend/images/mail_white.png')}}" alt=""></div><a
                                             href="mailto:fastsales@gmail.com">fastsales@gmail.com</a>
                                     </div>
                                 </div>

@@ -74,10 +74,10 @@
                             <input type="text" id="contact_form_name" name="contact_name"
                                 class="contact_form_name input_field" placeholder="Họ và tên" required="required"
                                 data-error="Hãy nhập tên của bạn.">
-                            <input type="text" id="contact_form_email" name="contact_email"
+                            <input type="email" id="contact_form_email" name="contact_email"
                                 class="contact_form_email input_field" placeholder="Email"
                                 required="required" data-error="Email is required.">
-                            <input type="text" id="contact_form_phone" name="contact_phone"
+                            <input type="number" id="contact_form_phone" name="contact_phone"
                                 class="contact_form_phone input_field" placeholder="Số điện thoại" required>
                         </div>
                         <div class="contact_form_inputs d-flex flex-md-row flex-column justify-content-between align-items-between">

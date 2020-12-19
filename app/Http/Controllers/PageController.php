@@ -5,6 +5,8 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Comment;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 use App\User;
 use DB;
 use Session;
@@ -59,6 +61,32 @@ class PageController extends Controller
     public function manager_contact(){
         $contact = Contact::orderby('contact_id','desc')->paginate(5);
         return view('admin.manager-contact', compact('contact'));
-
     }
+
+    public function info_user($id){
+        $edit_user = User::where('id',$id)->get();
+        return view('page.info_user', compact('edit_user'));
+    }
+    public function update_user(Request $request, $id){
+        $data = $request -> validate([
+            'email' => 'required'
+        ]);
+        $data['name'] = $request->name;
+        $data['gender'] = $request->gender;
+        $data['phone'] = $request->phone;
+        $data['email'] = $request->email;
+        $data['address'] = $request->address;
+        $data['password'] = Hash::make($request->password);
+        $get_image = $request->file('image');
+        if($get_image){
+            $name = $get_image;
+            $imagename = $name->getClientOriginalExtension();
+            $imagenames = time().'.'.$imagename;
+            $get_image->move(public_path('/uploads/user'),$imagenames);
+            $data['image'] = $imagenames;
+        }
+        User::where('id',$id)->update($data);
+        Session::put('message','Cập nhật thành công');
+        return Redirect::back()->with('success', 'Cập nhật thông tin tài khoản thành công!');
+    } 
 }

@@ -67,13 +67,17 @@ Route::post('update-cart-quantity','CartController@update_cart_quantity');
 // Checkout
 Route::get('checkout','CheckoutController@checkout');
 Route::post('order-place','CheckoutController@order_place');
+//Show information user
+Route::get('info_user/{id}', 'PageController@info_user');
+Route::post('update_user/{id}', 'PageController@update_user');
+//Show user order
 
 
 
 //Test
-// Route::get('/abc', function () {
-//     return view('page.checkout');
-// });
+Route::get('/abc', function () {
+    return view('page.info_user');
+});
 
 /*
 |--------------------------------------------------------------------------

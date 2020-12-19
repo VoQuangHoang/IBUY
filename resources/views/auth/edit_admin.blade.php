@@ -27,19 +27,19 @@
                         <option value="Nam">Nam</option>
                         @endif 
                     </select>
-                </div>
-            <div class="form-group">
-                <label for="exampleFormControlFile1">Hình Ảnh</label><br />
-                <input type="file" name="image" id="formGroupExampleInput" placeholder="Hình ảnh">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">Hình Ảnh Cũ</label><br />
+                <label for="image">Hình Ảnh</label><br />
+                <input type="file" name="image" class="form-control" style="height:auto;" id="image" placeholder="Hình ảnh">
+            </div>
+            <div class="form-group">
+                <label for="image_old">Hình Ảnh Cũ</label><br />
                 <img src="{{asset('public/uploads/user/'.$edit->image)}}" width="100">
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3">Số Điện Thoại</label>
                 <input type="phone" name="phone" value="{{$edit->phone}}" class="form-control form-control-user"
-                    id="exampleInputEmail" placeholder="Nhập Số Điện Thoại...">
+                    id="phone" placeholder="Nhập Số Điện Thoại...">
             </div>
             <div class="form-group">
                 <label class="control-label col-md-3">Địa Chỉ</label>

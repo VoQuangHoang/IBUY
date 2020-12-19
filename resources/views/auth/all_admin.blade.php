@@ -21,14 +21,14 @@
       <th scope="col">Giới Tính</th>
       <th scope="col">Số Điện Thoại</th>
       <th scope="col">Địa Chỉ</th>
-      <th scope="col">Phân Quyền</th>
+      <th scope="col">Vai trò</th>
       <th scope="col">Sửa/Xóa</th>
     </tr>
   </thead>
   <tbody style="text-align:center">
   	@foreach($all_admin as $key =>$admin)
     <tr>
-      <td style="text-align:left">{{$admin->name}}</td>
+      <td style="vertical-align: middle;text-align:left">{{$admin->name}}</td>
       <td style="vertical-align: middle;">
         <img src="public/uploads/user/{{$admin->image}}" style="max-width:50px;">
       </td>

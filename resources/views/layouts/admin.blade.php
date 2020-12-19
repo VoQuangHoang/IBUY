@@ -284,17 +284,14 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <!-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Thông tin
-                                </a>
-                                <!-- <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Cài Đặt
-                </a> -->
-                                <div class="dropdown-divider"></div>
+                                </a> -->
+                                
+                                <!-- <div class="dropdown-divider"></div> -->
                                 <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();                 document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Đăng xuất') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">@csrf
                                 </form>
